@@ -1,0 +1,1937 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ex-US Asymmetric — Rearmament &amp; Critical Minerals Research Note</title>
+<meta name="description" content="A research-grade survey of fourteen non-US names with policy-locked demand tailwinds, 9-12 month catalysts and asymmetric upside." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,200..900,0..100,0..1;1,9..144,200..900,0..100,0..1&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
+<style>
+/* ----------  RESET  ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+
+/* ----------  TOKENS  ---------- */
+:root{
+  /* three tone-on-tone neutral shades, pure warm black, zero blue */
+  --ink-00:#08080a;
+  --ink-10:#101011;
+  --ink-20:#18181a;
+  --ink-30:#202022;
+  --ink-40:#2a2a2d;
+  --ink-50:#3b3b3f;
+
+  --line:rgba(255,255,255,.055);
+  --line-2:rgba(255,255,255,.10);
+  --line-3:rgba(255,255,255,.18);
+
+  --text:#eeece8;
+  --text-2:#b8b4ad;
+  --muted:#84817b;
+  --dim:#57554f;
+
+  /* sharp accents */
+  --amber:#f5a524;
+  --amber-br:#ffbe4d;
+  --amber-soft:rgba(245,165,36,.12);
+  --amber-line:rgba(245,165,36,.35);
+  --pos:#76b37a;
+  --neg:#d85c4a;
+
+  --font-display:"Fraunces",ui-serif,Georgia,serif;
+  --font-sans:"Manrope",ui-sans-serif,system-ui,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+  --nav-w:232px;
+
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+
+body{
+  font-family:var(--font-sans);
+  font-weight:350;
+  color:var(--text);
+  background:var(--ink-00);
+  line-height:1.5;
+  letter-spacing:.002em;
+  font-feature-settings:"ss01","cv11";
+}
+
+/* ----------  TEXTURE + GRAIN OVERLAY  ---------- */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background:
+    radial-gradient(1200px 800px at 85% -10%,rgba(245,165,36,.035),transparent 60%),
+    radial-gradient(900px 600px at 0% 100%,rgba(245,165,36,.018),transparent 60%);
+  pointer-events:none;z-index:1;
+}
+body::after{
+  content:"";
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.92 0 0 0 0 0.85 0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity:.8;
+  mix-blend-mode:overlay;
+  pointer-events:none;z-index:2;
+}
+
+/* ----------  LAYOUT SHELL  ---------- */
+.shell{
+  position:relative;z-index:3;
+  padding-left:var(--nav-w);
+  min-height:100vh;
+}
+@media (max-width:960px){
+  .shell{padding-left:0;padding-top:56px}
+}
+
+/* ----------  TOP BAR / TICKER TAPE  ---------- */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(8,8,10,.72);
+  backdrop-filter:blur(14px) saturate(120%);
+  -webkit-backdrop-filter:blur(14px) saturate(120%);
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:center;
+  height:40px;
+}
+.topbar .brand{
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.22em;
+  padding:0 18px;color:var(--amber);text-transform:uppercase;
+  border-right:1px solid var(--line);height:100%;display:flex;align-items:center;
+  cursor:pointer;user-select:none;
+}
+.topbar .brand span{color:var(--dim);margin-left:8px}
+.ticker{
+  flex:1;overflow:hidden;height:100%;position:relative;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+}
+.ticker-track{
+  position:absolute;top:0;left:0;height:100%;display:flex;align-items:center;
+  animation:tkr 120s linear infinite;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;
+  white-space:nowrap;
+}
+.ticker-track.rev{animation-direction:reverse}
+.ticker-track span{padding:0 20px;color:var(--text-2);border-right:1px solid var(--line)}
+.ticker-track span b{color:var(--text);font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.ticker-track span i{font-style:normal;color:var(--pos);margin-left:10px}
+.ticker-track span i.d{color:var(--neg)}
+.ticker-track span i.f{color:var(--amber)}
+.ticker-track span i.u{color:var(--pos)}
+@keyframes tkr{to{transform:translateX(-50%)}}
+.topbar .clock{
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.18em;
+  padding:0 18px;color:var(--muted);border-left:1px solid var(--line);height:100%;display:flex;align-items:center;gap:10px;
+}
+.topbar .clock .dot{width:6px;height:6px;border-radius:50%;background:var(--pos);box-shadow:0 0 8px var(--pos);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+
+/* ----------  SIDE NAV  ---------- */
+.nav{
+  position:fixed;top:40px;left:0;bottom:0;width:var(--nav-w);
+  background:linear-gradient(180deg,var(--ink-10),var(--ink-00));
+  border-right:1px solid var(--line);
+  z-index:40;
+  display:flex;flex-direction:column;
+  padding:24px 0 16px;
+}
+.nav-head{
+  padding:0 22px 18px;border-bottom:1px solid var(--line);
+}
+.nav-head .eye{
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:.3em;color:var(--dim);
+}
+.nav-head .ttl{
+  font-family:var(--font-display);font-variation-settings:"opsz" 40,"SOFT" 50;
+  font-weight:400;font-size:18px;line-height:1.15;margin-top:10px;color:var(--text);
+  font-style:italic;
+}
+.nav-list{
+  flex:1;overflow-y:auto;padding:12px 0 12px;
+  scrollbar-width:thin;scrollbar-color:var(--ink-40) transparent;
+}
+.nav-list::-webkit-scrollbar{width:4px}
+.nav-list::-webkit-scrollbar-thumb{background:var(--ink-40);border-radius:2px}
+.nav-item{
+  display:flex;align-items:baseline;gap:10px;
+  padding:7px 22px;
+  font-family:var(--font-mono);font-size:11.5px;letter-spacing:.03em;
+  color:var(--text-2);
+  border-left:1px solid transparent;
+  transition:all .35s var(--ease);
+  position:relative;
+}
+.nav-item .n{color:var(--dim);font-variant-numeric:tabular-nums;min-width:22px;font-size:10px}
+.nav-item .lbl{flex:1;text-transform:uppercase;font-size:10.5px;letter-spacing:.08em}
+.nav-item .tkr{color:var(--dim);font-size:9.5px;letter-spacing:.04em}
+.nav-item:hover{color:var(--text);background:rgba(255,255,255,.02)}
+.nav-item:hover .n{color:var(--amber)}
+.nav-item.active{
+  color:var(--text);
+  border-left-color:var(--amber);
+  background:linear-gradient(90deg,var(--amber-soft),transparent 60%);
+}
+.nav-item.active .n{color:var(--amber)}
+.nav-item.active::after{
+  content:"";position:absolute;right:16px;top:50%;transform:translateY(-50%);
+  width:4px;height:4px;border-radius:50%;background:var(--amber);
+  box-shadow:0 0 10px var(--amber);
+}
+.nav-foot{
+  padding:14px 22px 16px;border-top:1px solid var(--line);
+  font-family:var(--font-mono);font-size:9px;letter-spacing:.22em;color:var(--dim);
+  display:flex;flex-direction:column;gap:8px;
+}
+.nav-foot .pr-row{display:flex;justify-content:space-between;align-items:center}
+.nav-foot .pr-row .pct{color:var(--text-2);font-variant-numeric:tabular-nums;letter-spacing:.05em}
+.nav-foot .pr-bar{
+  height:2px;background:var(--ink-30);position:relative;overflow:hidden;border-radius:1px;
+}
+.nav-foot .pr-bar i{
+  display:block;height:100%;width:var(--pr,0%);
+  background:linear-gradient(90deg,var(--amber),var(--amber-2,var(--amber)));
+  box-shadow:0 0 6px var(--amber);transition:width .1s linear;
+}
+.nav-foot .help-btn{
+  margin-top:4px;display:flex;justify-content:space-between;align-items:center;
+  background:transparent;border:1px solid var(--line-2);border-radius:3px;
+  padding:6px 10px;color:var(--dim);font-family:var(--font-mono);font-size:9px;letter-spacing:.22em;
+  cursor:pointer;transition:border-color .2s var(--ease),color .2s var(--ease);
+}
+.nav-foot .help-btn:hover{border-color:var(--amber-line);color:var(--text-2)}
+.nav-foot .help-btn .kbd{
+  padding:2px 5px;border:1px solid var(--line-2);border-radius:2px;font-size:9px;color:var(--text-2);
+  letter-spacing:0;
+}
+.nav-foot .help-btn:hover .kbd{border-color:var(--amber-line);color:var(--amber)}
+
+/* mobile nav toggle */
+.burger{display:none}
+@media (max-width:960px){
+  .nav{transform:translateX(-100%);transition:transform .4s var(--ease)}
+  .nav.open{transform:translateX(0)}
+  .burger{
+    display:flex;position:fixed;top:44px;left:12px;z-index:60;
+    width:40px;height:32px;background:var(--ink-20);border:1px solid var(--line-2);
+    align-items:center;justify-content:center;border-radius:4px;color:var(--text);
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;
+  }
+}
+
+/* ----------  MAIN CONTAINER  ---------- */
+main{padding:40px 0 0}
+.wrap{max-width:1480px;margin:0 auto;padding:0 48px}
+@media (max-width:760px){.wrap{padding:0 22px}}
+
+section{
+  padding:120px 0 80px;
+  position:relative;
+  scroll-margin-top:56px;
+}
+section + section{border-top:1px solid var(--line)}
+
+/* section meta */
+.meta{
+  display:flex;gap:20px;align-items:baseline;margin-bottom:28px;
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.25em;
+  text-transform:uppercase;color:var(--muted);
+}
+.meta .n{
+  color:var(--amber);border:1px solid var(--amber-line);padding:3px 8px;border-radius:2px;
+  background:var(--amber-soft);font-size:10px;
+}
+.meta .dash{flex:1;height:1px;background:linear-gradient(90deg,var(--line-2),transparent);align-self:center}
+.meta .coord{color:var(--dim)}
+
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:400;letter-spacing:-.02em;color:var(--text);line-height:1.05}
+h1{font-size:clamp(56px,8.6vw,128px);font-variation-settings:"opsz" 144,"SOFT" 30;}
+h2{font-size:clamp(36px,5.2vw,72px);font-variation-settings:"opsz" 96,"SOFT" 40;}
+h3{font-size:clamp(22px,2.2vw,30px);font-variation-settings:"opsz" 48,"SOFT" 50;}
+h4{font-size:17px;font-variation-settings:"opsz" 24;letter-spacing:-.01em}
+
+.display-lede{
+  font-family:var(--font-display);font-variation-settings:"opsz" 144,"SOFT" 30;
+  font-weight:300;font-style:italic;
+  font-size:clamp(22px,2.2vw,30px);line-height:1.35;color:var(--text-2);
+  max-width:68ch;
+}
+p.body{font-size:15.5px;line-height:1.65;color:var(--text-2);max-width:72ch}
+p.body + p.body{margin-top:1em}
+p.body strong{color:var(--text);font-weight:500}
+p.body em{font-style:italic;color:var(--amber-br);font-family:var(--font-display);font-variation-settings:"opsz" 24}
+
+.mono{font-family:var(--font-mono);letter-spacing:.02em;font-feature-settings:"ss01","zero","cv01"}
+.caps{text-transform:uppercase;letter-spacing:.18em;font-size:10.5px}
+
+/* ----------  HERO  ---------- */
+#s-00{padding-top:48px;padding-bottom:40px;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between}
+.hero-head{padding-top:40px}
+.hero-kicker{
+  display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-bottom:28px;
+}
+.hero-kicker .chip{
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--amber);padding:7px 12px;border:1px solid var(--amber-line);border-radius:2px;
+  background:var(--amber-soft);
+}
+.hero-kicker .seg{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+.hero-kicker .seg b{color:var(--text);font-weight:500}
+
+.hero-title{
+  font-family:var(--font-display);
+  font-weight:350;
+  line-height:.95;letter-spacing:-.035em;
+  font-variation-settings:"opsz" 144,"SOFT" 25,"WONK" 1;
+}
+.hero-title .l1{display:block;color:var(--text)}
+.hero-title .l2{display:block;color:var(--text-2);font-style:italic;font-variation-settings:"opsz" 144,"SOFT" 50,"WONK" 1}
+.hero-title .l3{display:block;color:var(--amber);font-style:italic;font-variation-settings:"opsz" 144,"SOFT" 80,"WONK" 1}
+.hero-title .yr{
+  display:inline-block;font-family:var(--font-mono);font-size:14px;letter-spacing:.3em;
+  vertical-align:middle;color:var(--muted);
+  padding:6px 10px;border:1px solid var(--line-2);border-radius:3px;margin-left:18px;
+  transform:translateY(-14px);cursor:pointer;transition:all .3s var(--ease);
+}
+.hero-title .yr:hover{color:var(--amber);border-color:var(--amber-line)}
+.hero-title .yr.flipped{color:var(--amber);border-color:var(--amber)}
+
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2);
+  margin-top:60px;
+}
+.hero-stat{
+  padding:26px 24px;border-right:1px solid var(--line);position:relative;
+}
+.hero-stat:last-child{border-right:0}
+.hero-stat .lbl{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.hero-stat .val{font-family:var(--font-display);font-size:52px;line-height:1;color:var(--text);font-variation-settings:"opsz" 96,"SOFT" 30;font-weight:300}
+.hero-stat .val .u{font-family:var(--font-mono);font-size:14px;color:var(--amber);margin-left:6px;letter-spacing:.04em;font-weight:400}
+.hero-stat .sub{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.4}
+@media (max-width:900px){.hero-stats{grid-template-columns:repeat(2,1fr)}.hero-stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.hero-stat:nth-child(2){border-right:0}}
+
+.hero-foot{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:40px;padding:40px 0 12px;flex-wrap:wrap;
+}
+.hero-foot .lede{max-width:56ch;font-family:var(--font-display);font-style:italic;font-variation-settings:"opsz" 48,"SOFT" 60;font-size:22px;line-height:1.45;color:var(--text-2)}
+.hero-foot .lede::before{content:"\201C";color:var(--amber);font-size:40px;line-height:0;margin-right:4px;position:relative;top:10px}
+.scroll-hint{
+  display:flex;align-items:center;gap:10px;color:var(--muted);
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+}
+.scroll-hint .bar{width:42px;height:1px;background:var(--line-3);position:relative;overflow:hidden}
+.scroll-hint .bar::after{content:"";position:absolute;inset:0;background:var(--amber);transform-origin:left;animation:sc 2.4s ease-in-out infinite}
+@keyframes sc{0%{transform:scaleX(0)}50%{transform:scaleX(1)}100%{transform:scaleX(0);transform-origin:right}}
+
+/* ----------  SETUP SECTION  ---------- */
+.setup-grid{
+  display:grid;grid-template-columns:1.25fr 1fr;gap:64px;align-items:start;margin-top:36px;
+}
+@media (max-width:1100px){.setup-grid{grid-template-columns:1fr}}
+
+.pullquote{
+  border-left:2px solid var(--amber);padding:10px 0 10px 26px;margin:32px 0;
+  font-family:var(--font-display);font-style:italic;font-size:24px;line-height:1.4;color:var(--text);
+  font-variation-settings:"opsz" 48,"SOFT" 50;
+}
+.pullquote span{color:var(--amber)}
+
+.stat-grid-sm{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+  border:1px solid var(--line);margin-top:24px;
+}
+.stat-grid-sm .c{background:var(--ink-10);padding:22px 20px;position:relative;overflow:hidden;transition:background .3s var(--ease)}
+.stat-grid-sm .c:hover{background:var(--ink-20)}
+.stat-grid-sm .c .k{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+.stat-grid-sm .c .v{font-family:var(--font-display);font-size:40px;line-height:1;color:var(--text);margin-top:10px;font-weight:300}
+.stat-grid-sm .c .v em{color:var(--amber);font-style:normal}
+.stat-grid-sm .c .d{font-size:12.5px;color:var(--text-2);margin-top:8px;line-height:1.4}
+
+.chart-primes{
+  background:var(--ink-10);border:1px solid var(--line);padding:28px;position:relative;overflow:hidden;
+}
+.chart-primes::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:40px 40px;
+  opacity:.4;pointer-events:none;
+}
+.chart-primes h4{margin-bottom:6px;position:relative;z-index:1}
+.chart-primes .sub{font-size:12.5px;color:var(--muted);margin-bottom:22px;position:relative;z-index:1}
+.chart-primes .legend{display:flex;gap:22px;margin-top:14px;flex-wrap:wrap;position:relative;z-index:1}
+.chart-primes .legend span{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);display:flex;gap:8px;align-items:center}
+.chart-primes .legend i{width:14px;height:2px;background:var(--muted);display:inline-block}
+
+/* ----------  STOCK CARDS  ---------- */
+.card{
+  background:linear-gradient(180deg,var(--ink-10),var(--ink-20));
+  border:1px solid var(--line);
+  position:relative;
+  transition:all .5s var(--ease);
+  overflow:hidden;
+}
+.card::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(600px 200px at var(--mx,50%) var(--my,0%),rgba(245,165,36,.07),transparent 60%);
+  opacity:0;transition:opacity .5s var(--ease);
+}
+.card:hover{border-color:var(--line-3);transform:translateY(-2px)}
+.card:hover::before{opacity:1}
+.card.pulse{animation:cardPulse 1.8s ease-out}
+@keyframes cardPulse{
+  0%{box-shadow:0 0 0 0 var(--amber-line),inset 0 0 0 1px var(--amber)}
+  60%{box-shadow:0 0 0 14px transparent,inset 0 0 0 1px var(--amber)}
+  100%{box-shadow:0 0 0 0 transparent,inset 0 0 0 1px var(--line)}
+}
+
+/* ---- FLAGSHIP CARD ---- */
+.flagship{
+  display:grid;grid-template-columns:1.15fr 1fr;gap:0;
+  margin-top:32px;padding:0;
+  background:linear-gradient(135deg,var(--ink-10) 0%,var(--ink-20) 55%,var(--ink-10) 100%);
+  border:1px solid var(--line-2);
+}
+@media (max-width:1000px){.flagship{grid-template-columns:1fr}}
+.flagship-left{padding:36px 40px;border-right:1px solid var(--line);position:relative}
+@media (max-width:1000px){.flagship-left{border-right:0;border-bottom:1px solid var(--line)}}
+.flagship-right{padding:36px 40px;background:var(--ink-00);position:relative}
+
+.ts{
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  font-family:var(--font-mono);
+  padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:22px;
+}
+.ts .sym{font-size:34px;font-weight:500;letter-spacing:.02em;color:var(--text)}
+.ts .ex{font-size:11px;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;padding:3px 7px;border:1px solid var(--line-2);border-radius:2px}
+.ts .nm{font-family:var(--font-display);font-size:20px;color:var(--text-2);font-style:italic;font-variation-settings:"opsz" 48,"SOFT" 40;margin-left:auto}
+
+.px-row{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:22px;align-items:flex-end}
+.px-row .px{font-family:var(--font-display);font-size:54px;line-height:1;color:var(--text);font-weight:300;font-variation-settings:"opsz" 96}
+.px-row .px .c{font-family:var(--font-mono);font-size:18px;color:var(--muted);margin-right:6px;font-weight:400}
+.px-row .mc{display:flex;flex-direction:column;gap:4px}
+.px-row .mc .l{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+.px-row .mc .v{font-family:var(--font-mono);font-size:16px;color:var(--text);font-weight:500}
+
+.range{margin:18px 0 22px}
+.range .lbl{font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-bottom:10px;display:flex;justify-content:space-between}
+.range .bar{height:5px;background:var(--ink-30);position:relative;border-radius:2px;overflow:hidden}
+.range .bar i{position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,var(--ink-40),var(--amber));border-radius:2px;width:0;animation:rng 1.6s var(--ease-out) .3s forwards}
+.range .bar .mk{position:absolute;top:-4px;width:2px;height:13px;background:var(--amber-br);box-shadow:0 0 6px var(--amber)}
+.range .ends{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:10.5px;color:var(--text);margin-top:8px;font-variant-numeric:tabular-nums}
+@keyframes rng{to{width:var(--w,60%)}}
+
+.tagline{font-family:var(--font-display);font-style:italic;font-size:22px;line-height:1.35;color:var(--text);margin-bottom:18px;font-variation-settings:"opsz" 48,"SOFT" 50}
+.tagline b{font-style:normal;color:var(--amber);font-weight:400}
+
+.bullets{list-style:none;margin-top:14px}
+.bullets li{
+  padding:14px 0 14px 0;border-bottom:1px solid var(--line);
+  font-size:14.5px;line-height:1.55;color:var(--text-2);
+}
+.bullets li:last-child{border-bottom:0}
+.bullets li::before{
+  content:attr(data-n);display:block;
+  font-family:var(--font-mono);font-size:9px;color:var(--amber);letter-spacing:.22em;
+  margin-bottom:6px;text-transform:uppercase;
+}
+.bullets li b{color:var(--text);font-weight:500}
+.bullets li .tag{display:inline-block;font-family:var(--font-mono);font-size:10px;padding:1px 6px;border:1px solid var(--amber-line);color:var(--amber);letter-spacing:.1em;text-transform:uppercase;margin-left:6px;border-radius:2px}
+
+.rr-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.rr-grid .b{
+  padding:18px 16px;background:var(--ink-10);border:1px solid var(--line);position:relative;
+}
+.rr-grid .b .h{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.rr-grid .b .h .dot{width:6px;height:6px;border-radius:50%}
+.rr-grid .b.pos .h .dot{background:var(--amber);box-shadow:0 0 6px var(--amber)}
+.rr-grid .b.neg .h .dot{background:var(--neg);box-shadow:0 0 6px var(--neg)}
+.rr-grid .b .v{font-family:var(--font-display);font-size:28px;color:var(--text);line-height:1;font-weight:300}
+.rr-grid .b.pos .v{color:var(--amber-br)}
+.rr-grid .b .t{font-size:12.5px;color:var(--text-2);margin-top:10px;line-height:1.4}
+
+/* inline pill */
+.pill{display:inline-block;font-family:var(--font-mono);font-size:10px;padding:2px 7px;border-radius:2px;letter-spacing:.1em;text-transform:uppercase;vertical-align:middle}
+.pill.a{color:var(--amber);border:1px solid var(--amber-line);background:var(--amber-soft)}
+.pill.n{color:var(--neg);border:1px solid rgba(216,92,74,.35);background:rgba(216,92,74,.08)}
+.pill.m{color:var(--muted);border:1px solid var(--line-2);background:var(--ink-20)}
+
+/* ---- SECONDARY CARDS GRID ---- */
+.cards-row{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:28px;
+}
+.card-sm{
+  background:var(--ink-10);border:1px solid var(--line);padding:22px 22px 20px;position:relative;overflow:hidden;
+  transition:all .4s var(--ease);
+}
+.card-sm:hover{background:var(--ink-20);border-color:var(--line-2);transform:translateY(-2px)}
+.card-sm:hover .arr{transform:translate(4px,-4px);color:var(--amber)}
+.card-sm .arr{
+  position:absolute;top:16px;right:16px;width:12px;height:12px;color:var(--dim);
+  transition:all .3s var(--ease);
+}
+.card-sm .sym-row{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+.card-sm .sym-row .sym{font-family:var(--font-mono);font-size:18px;font-weight:500;color:var(--text)}
+.card-sm .sym-row .ex{font-family:var(--font-mono);font-size:9.5px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase}
+.card-sm .nm{font-family:var(--font-display);font-size:15px;color:var(--text-2);font-style:italic;margin-bottom:12px;font-variation-settings:"opsz" 24}
+.card-sm .desc{font-size:13px;color:var(--text-2);line-height:1.55}
+.card-sm .verdict{
+  margin-top:14px;padding-top:12px;border-top:1px solid var(--line);
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);
+}
+.card-sm .verdict.neg{color:var(--neg)}
+.card-sm .verdict.m{color:var(--muted)}
+
+/* ---- BASKET BLOCKS ---- */
+.basket{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);margin-top:24px;
+}
+.basket .it{
+  background:var(--ink-10);padding:20px 18px;transition:background .3s var(--ease);position:relative;
+}
+.basket .it:hover{background:var(--ink-20)}
+.basket .it .sr{display:flex;align-items:baseline;gap:8px;margin-bottom:10px}
+.basket .it .sr .s{font-family:var(--font-mono);font-size:14px;font-weight:500;color:var(--text)}
+.basket .it .sr .e{font-family:var(--font-mono);font-size:9px;letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
+.basket .it .nn{font-family:var(--font-display);font-style:italic;font-size:13.5px;color:var(--text-2);margin-bottom:8px}
+.basket .it .dd{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* ---- CRITICAL MINERALS HEADER ---- */
+.cm-overview{
+  margin-top:28px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;
+  border:1px solid var(--line);
+}
+@media (max-width:900px){.cm-overview{grid-template-columns:1fr}}
+.cm-overview .c{
+  padding:28px 26px;border-right:1px solid var(--line);position:relative;
+}
+.cm-overview .c:last-child{border-right:0}
+@media (max-width:900px){.cm-overview .c{border-right:0;border-bottom:1px solid var(--line)}}
+.cm-overview .c .hd{font-family:var(--font-mono);font-size:10px;letter-spacing:.22em;color:var(--amber);text-transform:uppercase;margin-bottom:12px}
+.cm-overview .c .bd{font-size:14px;color:var(--text-2);line-height:1.55}
+.cm-overview .c .bd b{color:var(--text)}
+
+/* ---- DECISION MATRIX ---- */
+.matrix{
+  margin-top:36px;
+  border:1px solid var(--line-2);
+  background:var(--ink-10);
+  overflow:hidden;
+}
+.matrix table{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:12.5px}
+.matrix thead th{
+  text-align:left;font-family:var(--font-mono);font-size:10px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase;
+  padding:16px 18px;border-bottom:1px solid var(--line-2);background:var(--ink-20);
+  font-weight:500;
+  position:sticky;top:40px;backdrop-filter:blur(8px);
+}
+.matrix tbody tr{border-bottom:1px solid var(--line);transition:background .2s var(--ease)}
+.matrix tbody tr:hover{background:var(--ink-20)}
+.matrix tbody tr:last-child{border-bottom:0}
+.matrix tbody td{padding:18px;vertical-align:top;color:var(--text-2);font-size:12.5px;line-height:1.5}
+.matrix tbody td.sym{color:var(--text);font-size:14px;font-weight:500;letter-spacing:.02em}
+.matrix tbody td.sym small{display:block;color:var(--muted);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;margin-top:3px;font-weight:400}
+.matrix tbody td.vv{color:var(--amber);font-weight:500}
+.matrix tbody td.sv{color:var(--text)}
+.matrix tbody td.up{color:var(--amber-br);font-size:14px;text-align:right;white-space:nowrap}
+.matrix tbody td.up span{display:block;font-size:9.5px;color:var(--muted);margin-top:2px;letter-spacing:.15em;text-transform:uppercase}
+.matrix tbody td.rsk{color:var(--neg)}
+.matrix .bar-mini{width:80px;height:3px;background:var(--ink-30);margin-top:6px;position:relative;overflow:hidden}
+.matrix .bar-mini i{position:absolute;left:0;top:0;height:100%;background:var(--amber);width:0;transition:width 1.2s var(--ease-out)}
+.matrix tr.rv .bar-mini i{width:var(--w,50%)}
+
+@media (max-width:900px){
+  .matrix{overflow-x:auto}
+  .matrix table{min-width:820px}
+}
+
+/* ---- RISKS BOARD ---- */
+.risks{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px;
+}
+@media (max-width:900px){.risks{grid-template-columns:1fr}}
+.risks .r{
+  background:var(--ink-10);border:1px solid var(--line);padding:24px 22px;position:relative;
+}
+.risks .r .n{
+  position:absolute;top:18px;right:20px;
+  font-family:var(--font-mono);font-size:11px;color:var(--neg);letter-spacing:.2em;
+}
+.risks .r h4{margin-bottom:12px;font-size:18px}
+.risks .r p{font-size:13.5px;color:var(--text-2);line-height:1.55}
+
+.triplock{
+  margin-top:28px;background:var(--ink-10);border:1px solid var(--line);padding:28px;
+}
+.triplock .h{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:18px}
+.triplock .cond{display:grid;grid-template-columns:auto 1fr;gap:18px 20px;align-items:start}
+.triplock .cond .i{font-family:var(--font-mono);font-size:11px;color:var(--neg);padding:4px 8px;border:1px solid rgba(216,92,74,.35);border-radius:2px;background:rgba(216,92,74,.08)}
+.triplock .cond p{font-size:14px;color:var(--text-2);line-height:1.55}
+
+/* ---- SIZING ---- */
+.sizing{
+  display:grid;grid-template-columns:1.3fr 1fr;gap:40px;margin-top:30px;align-items:start;
+}
+@media (max-width:1000px){.sizing{grid-template-columns:1fr}}
+.sizing-ring{
+  background:var(--ink-10);border:1px solid var(--line);padding:32px;position:relative;
+}
+.sizing-ring svg{width:100%;height:auto;max-width:340px;margin:0 auto;display:block}
+.sizing-ring .cap{text-align:center;margin-top:18px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+
+.sizing-rules{display:flex;flex-direction:column;gap:14px}
+.sizing-rules .rule{
+  padding:22px 22px 20px;background:var(--ink-10);border:1px solid var(--line);position:relative;
+}
+.sizing-rules .rule:hover{border-color:var(--line-2)}
+.sizing-rules .rule .n{font-family:var(--font-mono);font-size:11px;color:var(--amber);letter-spacing:.22em}
+.sizing-rules .rule h4{margin-top:6px;margin-bottom:8px;font-size:18px}
+.sizing-rules .rule p{font-size:13.5px;color:var(--text-2);line-height:1.55}
+
+/* ---- FOOTER ---- */
+footer{
+  border-top:1px solid var(--line-2);margin-top:80px;padding:60px 0 44px;position:relative;
+}
+footer .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px}
+@media (max-width:900px){footer .f-grid{grid-template-columns:1fr}}
+footer h3{font-size:32px;line-height:1.1;margin-bottom:14px}
+footer p{font-size:13.5px;color:var(--text-2);line-height:1.55}
+footer .f-meta{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+footer .f-bottom{
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+  padding-top:26px;border-top:1px solid var(--line);
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+}
+footer .f-bottom .cursor-blink{display:inline-block;width:7px;height:12px;background:var(--amber);animation:bl 1s steps(2) infinite;vertical-align:middle;margin-left:6px}
+@keyframes bl{50%{opacity:0}}
+
+/* ----------  SCROLL REVEAL  ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}.rv.d5{transition-delay:.4s}.rv.d6{transition-delay:.48s}
+
+/* konami / alpha banner */
+.alpha-banner{
+  position:fixed;top:40px;left:var(--nav-w);right:0;z-index:45;
+  background:linear-gradient(90deg,var(--amber-soft),transparent);
+  border-top:1px solid var(--amber);border-bottom:1px solid var(--amber-line);
+  padding:12px 40px;display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);
+  transform:translateY(-110%);transition:transform .5s var(--ease);
+}
+.alpha-banner.show{transform:translateY(0);animation:alphaG 2s ease-out}
+@keyframes alphaG{0%{box-shadow:0 0 0 var(--amber)}30%{box-shadow:0 0 40px var(--amber-line)}100%{box-shadow:0 0 0 transparent}}
+@media (max-width:960px){.alpha-banner{left:0}}
+
+/* command hint overlay (help easter egg) */
+.help{
+  position:fixed;inset:0;background:rgba(8,8,10,.85);backdrop-filter:blur(8px);z-index:90;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .4s var(--ease);
+}
+.help.show{opacity:1;pointer-events:auto}
+.help-inner{
+  background:var(--ink-10);border:1px solid var(--amber-line);padding:36px 40px;max-width:520px;
+  font-family:var(--font-mono);font-size:12.5px;color:var(--text-2);line-height:2;
+  box-shadow:0 0 60px rgba(245,165,36,.12);
+}
+.help-inner h4{font-family:var(--font-mono);font-size:11px;letter-spacing:.3em;color:var(--amber);margin-bottom:18px;text-transform:uppercase}
+.help-inner .row{display:flex;justify-content:space-between;gap:30px;border-bottom:1px dashed var(--line);padding:6px 0}
+.help-inner .row:last-child{border-bottom:0}
+.help-inner .row .k{color:var(--text)}
+.help-inner .row .k b{background:var(--ink-30);padding:2px 7px;border:1px solid var(--line-2);border-radius:3px;margin:0 2px;font-weight:500}
+.help-inner .fo{font-size:10px;color:var(--dim);margin-top:16px;letter-spacing:.2em;text-transform:uppercase}
+
+/* custom selection */
+::selection{background:var(--amber);color:var(--ink-00)}
+
+/* animated underline links */
+a.u{position:relative;color:var(--amber);display:inline-block}
+a.u::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(.4);transform-origin:left;transition:transform .35s var(--ease)}
+a.u:hover::after{transform:scaleX(1)}
+
+/* mini bar viz used in body */
+.vbar{display:inline-flex;align-items:center;gap:1px;vertical-align:middle;margin-left:8px}
+.vbar i{display:block;width:3px;background:var(--amber);opacity:.35}
+.vbar i:nth-child(1){height:4px}.vbar i:nth-child(2){height:7px}.vbar i:nth-child(3){height:10px;opacity:.6}
+.vbar i:nth-child(4){height:14px;opacity:.85}.vbar i:nth-child(5){height:18px;opacity:1}
+
+/* section number oversize watermark */
+.watermark{
+  position:absolute;right:40px;top:110px;z-index:0;pointer-events:none;
+  font-family:var(--font-display);font-size:clamp(140px,16vw,240px);line-height:.8;
+  color:transparent;-webkit-text-stroke:1px var(--line-3);
+  font-variation-settings:"opsz" 144,"SOFT" 90;font-style:italic;font-weight:200;
+  letter-spacing:-.04em;
+  user-select:none;
+}
+section > .wrap{position:relative;z-index:1}
+</style>
+</head>
+<body>
+
+<!-- =====  TOP BAR  ===== -->
+<div class="topbar">
+  <div class="brand" id="brand">EX-US ALPHA BOOK <span>// NOTE 04.18.26</span></div>
+  <div class="ticker">
+    <div class="ticker-track" id="tkr">
+      <!-- filled by JS -->
+    </div>
+  </div>
+  <div class="clock"><span class="dot"></span><span id="clock">LIVE</span></div>
+</div>
+
+<button class="burger" id="burger" aria-label="Toggle navigation">MENU</button>
+
+<!-- =====  ALPHA BANNER (konami)  ===== -->
+<div class="alpha-banner" id="alpha">
+  <span>// ALPHA UNLOCKED // BOTTLENECK SUPPLIERS UNVEILED //</span>
+  <span>POSITIONING EDGE · 100-200% ASYMMETRY</span>
+</div>
+
+<!-- =====  NAV  ===== -->
+<aside class="nav" id="nav">
+  <div class="nav-head">
+    <div class="eye">// NAVIGATION</div>
+    <div class="ttl">An inventory of<br/>bottleneck suppliers</div>
+  </div>
+  <div class="nav-list" id="navlist">
+    <a href="#s-00" class="nav-item"><span class="n">00</span><span class="lbl">Overview</span><span class="tkr"></span></a>
+    <a href="#s-01" class="nav-item"><span class="n">01</span><span class="lbl">Setup</span><span class="tkr">// ctx</span></a>
+    <a href="#s-02" class="nav-item"><span class="n">02</span><span class="lbl">Propulsion</span><span class="tkr">AVI</span></a>
+    <a href="#s-03" class="nav-item"><span class="n">03</span><span class="lbl">C-UAS</span><span class="tkr">CHRT</span></a>
+    <a href="#s-04" class="nav-item"><span class="n">04</span><span class="lbl">Unmanned</span><span class="tkr">EXA</span></a>
+    <a href="#s-05" class="nav-item"><span class="n">05</span><span class="lbl">Tungsten</span><span class="tkr">EQR</span></a>
+    <a href="#s-06" class="nav-item"><span class="n">06</span><span class="lbl">Antimony</span><span class="tkr">LRV</span></a>
+    <a href="#s-07" class="nav-item"><span class="n">07</span><span class="lbl">Rare Earth</span><span class="tkr">ARU</span></a>
+    <a href="#s-08" class="nav-item"><span class="n">08</span><span class="lbl">Titanium</span><span class="tkr">IPX</span></a>
+    <a href="#s-09" class="nav-item"><span class="n">09</span><span class="lbl">PGM-Cu</span><span class="tkr">CHN</span></a>
+    <a href="#s-10" class="nav-item"><span class="n">10</span><span class="lbl">Silver</span><span class="tkr">DSV</span></a>
+    <a href="#s-11" class="nav-item"><span class="n">11</span><span class="lbl">Enrichment</span><span class="tkr">SLX</span></a>
+    <a href="#s-12" class="nav-item"><span class="n">12</span><span class="lbl">Contrarian</span><span class="tkr">VUL</span></a>
+    <a href="#s-13" class="nav-item"><span class="n">13</span><span class="lbl">Matrix</span><span class="tkr">// all</span></a>
+    <a href="#s-14" class="nav-item"><span class="n">14</span><span class="lbl">Risks</span><span class="tkr">// tail</span></a>
+    <a href="#s-15" class="nav-item"><span class="n">15</span><span class="lbl">Sizing</span><span class="tkr">// risk</span></a>
+  </div>
+  <div class="nav-foot">
+    <div class="pr-row">
+      <span>PROGRESS</span>
+      <span class="pct" id="navprv">0%</span>
+    </div>
+    <div class="pr-bar"><i id="navpr"></i></div>
+    <button class="help-btn" id="helpBtn" type="button">
+      <span>SHORTCUTS</span>
+      <span class="kbd">?</span>
+    </button>
+  </div>
+</aside>
+
+<!-- =====  HELP OVERLAY  ===== -->
+<div class="help" id="help">
+  <div class="help-inner">
+    <h4>// Input bindings</h4>
+    <div class="row"><span class="k"><b>?</b></span><span>toggle this overlay</span></div>
+    <div class="row"><span class="k">type <b>AVI</b> · <b>ALM</b> · <b>CHN</b> · etc.</span><span>jump to that position</span></div>
+    <div class="row"><span class="k"><b>&uarr;&uarr;&darr;&darr;&larr;&rarr;&larr;&rarr;BA</b></span><span>unlock alpha</span></div>
+    <div class="row"><span class="k"><b>G</b> then <b>T</b></span><span>scroll to top</span></div>
+    <div class="row"><span class="k">click <b>"2026"</b></span><span>flip</span></div>
+    <div class="row"><span class="k">hover ticker</span><span>hold to reverse</span></div>
+    <div class="fo">// press <b>?</b> or <b>Esc</b> to close</div>
+  </div>
+</div>
+
+<div class="shell">
+<main>
+
+<!-- =====  00 OVERVIEW  ===== -->
+<section id="s-00">
+  <div class="wrap">
+    <div class="hero-head">
+      <div class="hero-kicker rv">
+        <span class="chip">Research Note // Non-US Book</span>
+        <span class="seg"><b>14</b> names</span>
+        <span class="seg">Horizon <b>9-12 months</b></span>
+        <span class="seg">Avg 52-wk range <b>~3x</b></span>
+      </div>
+      <h1 class="hero-title rv d1">
+        <span class="l1">Ex-US</span>
+        <span class="l2">asymmetric bets on</span>
+        <span class="l3">rearmament<span class="yr" id="yr">&amp; Q2 2026</span></span>
+        <span class="l3" style="color:var(--text-2);font-style:italic">&amp; critical minerals</span>
+      </h1>
+    </div>
+
+    <div class="hero-stats rv d3">
+      <div class="hero-stat">
+        <div class="lbl">Book upside target</div>
+        <div class="val">100<span class="u">%+</span></div>
+        <div class="sub">across the flagship fourteen, absent a continued macro bull</div>
+      </div>
+      <div class="hero-stat">
+        <div class="lbl">NATO commitment</div>
+        <div class="val">3.5<span class="u">% GDP</span></div>
+        <div class="sub">codified defense floor · +1.5% resilience = 5.0% total</div>
+      </div>
+      <div class="hero-stat">
+        <div class="lbl">Hensoldt book-to-bill</div>
+        <div class="val">3.6<span class="u">x</span></div>
+        <div class="sub">&euro;8.83bn backlog vs &euro;2.46bn 2025 revenue</div>
+      </div>
+      <div class="hero-stat">
+        <div class="lbl">Non-China tungsten</div>
+        <div class="val">80<span class="u">%</span></div>
+        <div class="sub">Almonty's Sangdong at full ramp, FY26</div>
+      </div>
+    </div>
+
+    <div class="hero-foot rv d4">
+      <p class="lede">A rare confluence &mdash; policy-locked demand, physical supply that cannot respond in twelve months, and listed vehicles small enough to still re-rate violently on a single contract.</p>
+      <div class="scroll-hint"><span>Scroll</span><span class="bar"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- =====  01 SETUP  ===== -->
+<section id="s-01">
+  <div class="watermark">01</div>
+  <div class="wrap">
+    <div class="meta rv"><span class="n">01</span><span>Mid-cycle reset</span><span class="dash"></span><span class="coord">LAT 00 // MARKET STRUCTURE</span></div>
+    <h2 class="rv d1">Why the<br/><em style="font-style:italic;color:var(--amber);font-variation-settings:'opsz' 96,'SOFT' 80">window</em> is open</h2>
+
+    <div class="setup-grid">
+      <div>
+        <p class="body rv d2" style="margin-top:36px">European defense primes &mdash; <strong>Rheinmetall, Hensoldt, Saab, Leonardo, Renk</strong> &mdash; ran <strong>100-300%</strong> in 2025, consolidated through 2H25 on Ukraine-peace speculation, then resumed climbing into spring 2026. The STOXX Europe Aerospace &amp; Defence Index pulled back <strong>~11%</strong> from its 2026 peak by mid-April even as earnings estimates rose &mdash; the sector is still compounding on NATO&apos;s 3.5%-of-GDP commitment and Germany&apos;s constitutional debt-brake exemption, endorsed by all 27 EU members on <strong>6 March 2026</strong>.</p>
+
+        <p class="pullquote rv d3">Primes cannot convert faster than their <span>subcontractors</span> can supply propellants, seekers, radars, datalinks and rocket motors.</p>
+
+        <p class="body rv d2">Critical minerals are in a separate, non-correlated cycle driven by Chinese export controls on <strong>tungsten, antimony, gallium, germanium</strong> and heavy REEs, with Western sovereign balance sheets &mdash; DoD IBAS, EU CRMA, Canada CMS, Australia CMF &mdash; actively writing checks. The mispricings cluster on ASX, TSX-V, AIM, Warsaw and Borsa Italiana: thinner institutional coverage, more forced-seller overhangs from ETF rebalancing, and options chains that have not yet adjusted implied vols to the new policy regime.</p>
+
+        <div class="stat-grid-sm rv d3">
+          <div class="c"><div class="k">Kongsberg backlog</div><div class="v">NOK <em>157bn</em></div><div class="d">of which NOK 98bn tied specifically to missiles &amp; air defense</div></div>
+          <div class="c"><div class="k">Avio US contract</div><div class="v"><em>$65m</em></div><div class="d">three-year Department of War, DSS JV &mdash; 6 Mar 2026</div></div>
+          <div class="c"><div class="k">Chalice post-tax NPV</div><div class="v"><em>A$1.0bn</em></div><div class="d">base case; A$1.5bn at spot &mdash; above current market cap</div></div>
+          <div class="c"><div class="k">Silver deficit streak</div><div class="v"><em>5</em> years</div><div class="d">consecutive industrial deficit per Silver Institute</div></div>
+        </div>
+      </div>
+
+      <div class="rv d4">
+        <div class="chart-primes">
+          <h4>European defense primes &middot; 2025-26</h4>
+          <div class="sub mono caps">INDEXED TO 100 &middot; JAN 2025</div>
+          <svg viewBox="0 0 560 340" style="width:100%;margin-top:16px">
+            <defs>
+              <linearGradient id="gPrimes" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#f5a524" stop-opacity="0.28"/>
+                <stop offset="100%" stop-color="#f5a524" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="gSub" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#eeece8" stop-opacity="0.2"/>
+                <stop offset="100%" stop-color="#eeece8" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <!-- Y ticks -->
+            <g font-family="JetBrains Mono" font-size="9" fill="#57554f">
+              <text x="8" y="40">400</text>
+              <text x="8" y="120">300</text>
+              <text x="8" y="200">200</text>
+              <text x="8" y="280">100</text>
+            </g>
+            <!-- X ticks -->
+            <g font-family="JetBrains Mono" font-size="9" fill="#57554f" text-anchor="middle">
+              <text x="60" y="325">Q1 25</text>
+              <text x="180" y="325">Q3 25</text>
+              <text x="300" y="325">Q1 26</text>
+              <text x="440" y="325">Q2 26</text>
+              <text x="540" y="325">now</text>
+            </g>
+            <!-- grid -->
+            <g stroke="rgba(255,255,255,.06)" stroke-width="1">
+              <line x1="40" y1="40" x2="560" y2="40"/>
+              <line x1="40" y1="120" x2="560" y2="120"/>
+              <line x1="40" y1="200" x2="560" y2="200"/>
+              <line x1="40" y1="280" x2="560" y2="280"/>
+            </g>
+            <!-- primes line (Rheinmetall-ish path) -->
+            <path d="M40,280 L80,250 L120,220 L160,170 L200,150 L240,140 L280,120 L310,135 L340,150 L370,140 L400,115 L440,80 L480,70 L520,90 L560,60" fill="none" stroke="#f5a524" stroke-width="2"/>
+            <path d="M40,280 L80,250 L120,220 L160,170 L200,150 L240,140 L280,120 L310,135 L340,150 L370,140 L400,115 L440,80 L480,70 L520,90 L560,60 L560,300 L40,300 Z" fill="url(#gPrimes)" opacity="0.8"/>
+            <!-- subcontractor line -->
+            <path d="M40,280 L80,270 L120,260 L160,240 L200,230 L240,225 L280,215 L310,218 L340,215 L370,210 L400,190 L440,160 L480,140 L520,150 L560,125" fill="none" stroke="#eeece8" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.85"/>
+            <path d="M40,280 L80,270 L120,260 L160,240 L200,230 L240,225 L280,215 L310,218 L340,215 L370,210 L400,190 L440,160 L480,140 L520,150 L560,125 L560,300 L40,300 Z" fill="url(#gSub)"/>
+            <!-- pullback marker -->
+            <g>
+              <line x1="400" y1="60" x2="400" y2="295" stroke="#d85c4a" stroke-width="1" stroke-dasharray="2 3"/>
+              <text x="406" y="52" font-family="JetBrains Mono" font-size="9" fill="#d85c4a">-11% pullback Apr 26</text>
+            </g>
+            <!-- annotations -->
+            <circle cx="440" cy="80" r="3" fill="#f5a524"/>
+            <text x="450" y="76" font-family="JetBrains Mono" font-size="9" fill="#f5a524">+287%</text>
+            <circle cx="440" cy="160" r="3" fill="#eeece8"/>
+            <text x="450" y="156" font-family="JetBrains Mono" font-size="9" fill="#b8b4ad">subcontractors lag</text>
+          </svg>
+          <div class="legend">
+            <span><i style="background:#f5a524"></i>Primes (RHM/HAG/SAAB/LDO)</span>
+            <span><i style="background:#eeece8;border-top:1px dashed"></i>Subcontractor &amp; feedstock basket</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====  02 PROPULSION / AVI  ===== -->
+<section id="s-02" data-ticker="AVI">
+  <div class="watermark">02</div>
+  <div class="wrap">
+    <div class="meta rv"><span class="n">02</span><span>Munitions &amp; air-defense propulsion</span><span class="dash"></span><span class="coord">TOP PICK // BIT:AVI</span></div>
+    <h2 class="rv d1">The cleanest <em>propulsion</em><br/>monopoly in Europe.</h2>
+    <p class="display-lede rv d2" style="margin-top:28px">Avio designs the solid rocket motors for MBDA&apos;s Aster 30 and the full motor for CAMM-ER &mdash; the missiles underneath Poland&apos;s Narew program and the UK Sky Sabre system.</p>
+
+    <div class="flagship rv d3" data-ticker="AVI">
+      <div class="flagship-left">
+        <div class="ts">
+          <span class="sym">AVI</span>
+          <span class="ex">BIT &middot; Borsa Italiana</span>
+          <span class="nm">Avio S.p.A.</span>
+        </div>
+        <div class="px-row">
+          <div class="px"><span class="c">&euro;</span>35.95</div>
+          <div class="mc"><span class="l">Market cap</span><span class="v">&euro;1.65bn</span></div>
+          <div class="mc"><span class="l">As of</span><span class="v">06 Apr 26</span></div>
+        </div>
+        <div class="range">
+          <div class="lbl"><span>52-week range</span><span>&euro;14.40 &mdash; &euro;65.20</span></div>
+          <div class="bar"><i style="--w:42%"></i><div class="mk" style="left:42%"></div></div>
+          <div class="ends"><span>&euro;14.40</span><span>spot &euro;35.95</span><span>&euro;65.20</span></div>
+        </div>
+
+        <p class="tagline">The only non-US producer with <b>free Western clearance</b> to supply large-diameter SRMs into the US inventory.</p>
+
+        <ul class="bullets">
+          <li data-n="THESIS"><b>Poland Narew</b> &gt;1,000 CAMM-ER missiles. Dec 2024 &euro;150m initial tranche. &euro;89.59m licensing to Mesko with <b>&euro;4.07m per-unit royalty</b> as pure-margin annuity.</li>
+          <li data-n="BUILD"><b>Virginia SRM plant</b> forthcoming; Raytheon and Lockheed have signed MoUs to take capacity. <span class="tag">US-CLEAR</span></li>
+          <li data-n="SPACE">CM25 Bremen Ministerial: <b>&euro;139m</b> Vega high-thrust engine + &euro;15.98m Space Rider. Management guiding &gt;&euro;600m new ESA contracts layered on missile book.</li>
+          <li data-n="SETUP">Sold off <b>&euro;65 &rarr; &euro;36</b> on Smile space-launch-delay noise &mdash; transient, unrelated to defense earnings driver.</li>
+        </ul>
+      </div>
+
+      <div class="flagship-right">
+        <div class="mono caps" style="color:var(--muted);margin-bottom:14px">// 9-12 MONTH CATALYSTS</div>
+        <ul class="bullets">
+          <li data-n="01"><b>Narew follow-on SRM order</b> &mdash; size likely <b>&gt;&euro;200m</b></li>
+          <li data-n="02"><b>UK Sky Sabre replenishment</b> post-Ukraine drawdown</li>
+          <li data-n="03"><b>Vega-C commercial return-to-flight</b></li>
+          <li data-n="04"><b>US plant groundbreaking</b></li>
+        </ul>
+
+        <div class="rr-grid">
+          <div class="b pos">
+            <div class="h"><span>Upside</span><span class="dot"></span></div>
+            <div class="v">+100-120%</div>
+            <div class="t">Rerate to &euro;60-70. Only requires backlog marked at prime multiples.</div>
+          </div>
+          <div class="b neg">
+            <div class="h"><span>Principal risk</span><span class="dot"></span></div>
+            <div class="v">2027-28</div>
+            <div class="t">Colleferro qualification delays for US motor variants (~2 more years). Not a 9-12 month risk.</div>
+          </div>
+        </div>
+
+        <div style="margin-top:22px;padding-top:18px;border-top:1px solid var(--line)">
+          <div class="mono caps" style="color:var(--muted);margin-bottom:10px">// SECONDARY PROPELLANT</div>
+          <div style="font-size:14px;line-height:1.55;color:var(--text-2)">
+            <b style="color:var(--text);font-family:var(--font-mono);font-size:13px">CHG &middot; LSE</b> &mdash; Chemring for Chemring Nobel rocket propellants and countermeasures. <span class="pill m">longer-duration</span> <span class="pill m">crowded</span> &mdash; a defensible pair, not the highest-conviction idea.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====  03 C-UAS / CHRT  ===== -->
+<section id="s-03" data-ticker="CHRT">
+  <div class="watermark">03</div>
+  <div class="wrap">
+    <div class="meta rv"><span class="n">03</span><span>Counter-UAS &amp; defense electronics</span><span class="dash"></span><span class="coord">TOP PICK // LON:CHRT</span></div>
+    <h2 class="rv d1"><em>EOS is crowded.</em><br/>Cohort is not.</h2>
+
+    <div class="cards-row rv d2" style="margin-top:40px">
+      <div class="card-sm" data-ticker="EOS">
+        <svg class="arr" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+        <div class="sym-row"><span class="sym">EOS</span><span class="ex">ASX</span></div>
+        <div class="nm">Electro Optic Systems</div>
+        <div class="desc">Fundamentals real &mdash; $80m Korea JV Apollo laser, $45m Middle East orders, MARSS acquisition, A$106m cash no debt. But stock ran <b style="color:var(--text)">~626% in 2025</b>; cloud from Mar 2026 ASX disclosure review and A$4m ASIC penalty.</div>
+        <div class="verdict neg">// OPTIONALITY ALREADY PRICED</div>
+      </div>
+
+      <div class="card-sm" data-ticker="DRO">
+        <svg class="arr" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+        <div class="sym-row"><span class="sym">DRO</span><span class="ex">ASX</span></div>
+        <div class="nm">DroneShield</div>
+        <div class="desc">Well-known with active options interest. Reliance on <b style="color:var(--text)">lumpy Middle East orders</b> makes 2025 euphoria worth fading.</div>
+        <div class="verdict neg">// FADE 2025 EUPHORIA</div>
+      </div>
+
+      <div class="card-sm" data-ticker="HAG">
+        <svg class="arr" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+        <div class="sym-row"><span class="sym">HAG</span><span class="ex">ETR</span></div>
+        <div class="nm">Hensoldt</div>
+        <div class="desc">&euro;83 vs &euro;91 mean target &mdash; fine beta, not asymmetric. Real call: 2026 EBITDA-margin guide of <b style="color:var(--text)">&quot;up to 19%&quot;</b> is management-conservative. Realistic catalyst is Jul/Oct beat-and-raise.</div>
+        <div class="verdict m">// 20-30%, NOT 100%</div>
+      </div>
+
+      <div class="card-sm" data-ticker="THEON">
+        <svg class="arr" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+        <div class="sym-row"><span class="sym">THEON</span><span class="ex">AEX</span></div>
+        <div class="nm">Theon International</div>
+        <div class="desc">Night-vision and thermal-imaging for European armies, going gangbusters on Ukraine replenishment. Plausible <b style="color:var(--text)">70-100% name</b> over 12 months as Rheinmetall and KMW standardize on European-sourced optronics.</div>
+        <div class="verdict">// UNDER-COVERED</div>
+      </div>
+    </div>
+
+    <div class="flagship rv d3" style="margin-top:48px" data-ticker="CHRT">
+      <div class="flagship-left">
+        <div class="ts">
+          <span class="sym">CHRT</span>
+          <span class="ex">LON &middot; AIM</span>
+          <span class="nm">Cohort plc</span>
+        </div>
+        <div class="px-row">
+          <div class="px"><span class="c">p</span>1,238</div>
+          <div class="mc"><span class="l">Market cap</span><span class="v">&pound;600m</span></div>
+          <div class="mc"><span class="l">FY24/25 revenue</span><span class="v">&pound;270m <span style="color:var(--amber)">+33%</span></span></div>
+        </div>
+        <div class="range">
+          <div class="lbl"><span>Consensus target &middot; 1,605p</span><span>52-wk high 1,796p</span></div>
+          <div class="bar"><i style="--w:68%"></i><div class="mk" style="left:68%"></div></div>
+          <div class="ends"><span>spot 1,238p</span><span>target 1,605p</span><span>high 1,796p</span></div>
+        </div>
+
+        <p class="tagline">Record order book <b>&pound;616.4m</b> stretching to the mid-2030s and a <b>19-year</b> unbroken dividend-growth streak.</p>
+
+        <ul class="bullets">
+          <li data-n="CORE">H1 FY26 backlog &pound;604.5m covers <b>96% of consensus revenue</b>.</li>
+          <li data-n="M&amp;A">Jan 2025 &pound;75m acquisition of Australia&apos;s <b>EM Solutions</b> adds SATCOM-on-the-move at a <b>28% maiden-quarter margin</b>.</li>
+          <li data-n="ORDERS">MCL Jan 2026 &pound;14m Skydio UAS contract; Hanwha Ocean MoU for Royal Thai Navy frigate program. <span class="tag">NEW GEOS</span></li>
+          <li data-n="SETUP">Compressed to ~1,100p on Chess Dynamics interim-margin concerns &mdash; entry well below consensus.</li>
+        </ul>
+      </div>
+      <div class="flagship-right">
+        <div class="mono caps" style="color:var(--muted);margin-bottom:14px">// 9-12 MONTH CATALYSTS</div>
+        <ul class="bullets">
+          <li data-n="01"><b>Chess Dynamics margin recovery</b> to mid-teens</li>
+          <li data-n="02"><b>UK 5%-of-GDP spending confirmation</b></li>
+          <li data-n="03"><b>MCL follow-on UAS orders</b></li>
+        </ul>
+        <div class="rr-grid">
+          <div class="b pos"><div class="h"><span>Upside</span><span class="dot"></span></div><div class="v">+50-65%</div><div class="t">Rerate to 1,800-2,000p. Cushioned by 1.3% yield.</div></div>
+          <div class="b neg"><div class="h"><span>Principal risk</span><span class="dot"></span></div><div class="v">S&amp;E margin</div><div class="t">Sensors &amp; Effectors margin drag. Options-free &mdash; sizing discipline matters.</div></div>
+        </div>
+
+        <div style="margin-top:22px;padding-top:18px;border-top:1px solid var(--line)">
+          <div class="mono caps" style="color:var(--muted);margin-bottom:10px">// UNDER-THE-RADAR SWARM PLAY</div>
+          <div style="font-size:14px;line-height:1.55;color:var(--text-2)">
+            <b style="color:var(--text);font-family:var(--font-mono);font-size:13px">CRI &middot; WSE</b> Creotech Instruments. PLN 1.89bn mcap, <b style="color:var(--amber)">+143%</b> trailing year. Prime on Poland&apos;s PLN 453m Mikroglob; sole prime on ESA&apos;s <b>Twardowski lunar mission</b> &mdash; first fully European lunar mission in 20 years. Warsaw float is thin; one capital raise from Central-European Planet/Maxar analog.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====  04 UNMANNED & SOVEREIGN AEROSPACE / EXA  ===== -->
+<section id="s-04" data-ticker="EXA">
+  <div class="watermark">04</div>
+  <div class="wrap">
+    <div class="meta rv"><span class="n">04</span><span>Unmanned &amp; sovereign aerospace</span><span class="dash"></span><span class="coord">TOP PICK // EPA:EXA</span></div>
+    <h2 class="rv d1">The <em>autonomy layer</em><br/>NATO can actually buy.</h2>
+
+    <div class="cm-overview rv d2" style="margin-top:32px">
+      <div class="c"><div class="hd">Inertial navigation sovereignty</div><div class="bd">GPS denial is the defining EW reality of 2026. Fiber-optic gyros and ring-laser IMUs are the fallback, and <b>two of the world&apos;s four serious Western suppliers</b> sit in France and Norway &mdash; not Massachusetts.</div></div>
+      <div class="c"><div class="hd">Naval missile reshoring</div><div class="bd">NSM/JSM orders from US Navy, Australia, Germany, UK &amp; Canada have pushed a Norwegian mid-cap into a <b>multi-year backlog</b>. This is the anti-ship successor to Harpoon and it&apos;s not American.</div></div>
+      <div class="c"><div class="hd">Unmanned surface &amp; sub</div><div class="bd">Belgian / Dutch mine-countermeasure USV program, French FREMM sub-drone integration, autonomous MCM worth <b>&euro;1.9bn+ of contracted work</b>. The drone war goes underwater next.</div></div>
+    </div>
+
+    <div class="flagship rv d3" style="margin-top:32px" data-ticker="EXA">
+      <div class="flagship-left">
+        <div class="ts">
+          <span class="sym">EXA</span>
+          <span class="ex">EPA (Euronext Paris)</span>
+          <span class="nm">Exail Technologies</span>
+        </div>
+
+        <p class="tagline">The only listed pure-play that sells both <b>inertial nav</b> and <b>autonomous naval drones</b> to NATO customers &mdash; not a defense conglomerate, not a prime&apos;s subcontractor.</p>
+
+        <ul class="bullets">
+          <li data-n="DRONES"><b>MCM USV backlog</b> with Belgian &amp; Dutch navies (rMCM program) &mdash; twelve mine-countermeasure motherships plus toolboxes of autonomous subsurface drones. Booked revenue runs to 2030+.</li>
+          <li data-n="INS">Fiber-optic gyro IMU business (formerly iXblue) is the <b>European alternative to Honeywell/Northrop</b> for GPS-denied inertial navigation. Structural tailwind as EW disrupts GNSS in Ukraine, Red Sea, Baltic.</li>
+          <li data-n="SUBSEA">Deep-sea autonomous systems for seabed cable &amp; pipeline protection &mdash; a capability NATO now treats as Article 5-relevant after Nord Stream and Baltic cable cuts.</li>
+          <li data-n="SCALE">Revenue run-rate roughly doubled post-merger of ECA Group + iXblue. Institutional ownership still thin &mdash; <b>uncrowded by US investors</b>.</li>
+        </ul>
+      </div>
+      <div class="flagship-right">
+        <div class="mono caps" style="color:var(--muted);margin-bottom:14px">// 9-12 MONTH CATALYSTS</div>
+        <ul class="bullets">
+          <li data-n="01"><b>rMCM USV deliveries</b> ramp (Belgium/Netherlands)</li>
+          <li data-n="02"><b>German Navy MCM</b> tender decision</li>
+          <li data-n="03"><b>Seabed warfare program</b> awards (UK/Norway/France)</li>
+          <li data-n="04"><b>Margin inflection</b> as iXblue synergies flow through</li>
+        </ul>
+        <div class="rr-grid">
+          <div class="b pos"><div class="h"><span>Upside profile</span><span class="dot"></span></div><div class="v">Structural</div><div class="t">GPS-denial and seabed warfare are multi-decade themes, not cycles.</div></div>
+          <div class="b neg"><div class="h"><span>Principal risk</span><span class="dot"></span></div><div class="v">Working capital</div><div class="t">Program-driven cashflow lumpiness; watch inventory build and milestone timing.</div></div>
+        </div>
+
+        <div style="margin-top:22px;padding-top:18px;border-top:1px solid var(--line)">
+          <div class="mono caps" style="color:var(--muted);margin-bottom:10px">// WHY IT FITS THE THESIS</div>
+          <div style="font-size:14px;line-height:1.55;color:var(--text-2)">
+            Every modern war is now <b>drones vs counter-drones vs GPS-denial vs seabed-infrastructure-attacks</b>. Exail is the rare small-cap selling into all four. Paris listed, no US asset dependency, procurement insulated from any US political rotation.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv d2" style="margin-top:36px">
+      <div class="mono caps" style="color:var(--muted);margin-bottom:14px">// SOVEREIGN AEROSPACE BASKET</div>
+      <div class="basket">
+        <div class="it" data-ticker="KOG">
+          <div class="sr"><span class="s">KOG</span><span class="e">OSL</span></div>
+          <div class="nn">Kongsberg Gruppen</div>
+          <div class="dd"><b>NSM / JSM</b> anti-ship missile, Protector RWS remote weapon stations, autonomous maritime. Backlog stretches through decade.</div>
+        </div>
+        <div class="it" data-ticker="OHB">
+          <div class="sr"><span class="s">OHB</span><span class="e">ETR</span></div>
+          <div class="nn">OHB SE</div>
+          <div class="dd">German satellite prime. <b>SARah radar reconnaissance</b> for Bundeswehr, Galileo payloads, military SatCom. Family-controlled float.</div>
+        </div>
+        <div class="it" data-ticker="HANWHA">
+          <div class="sr"><span class="s">012450</span><span class="e">KRX</span></div>
+          <div class="nn">Hanwha Aerospace</div>
+          <div class="dd"><b>K9 howitzer</b> + <b>Chunmoo MLRS</b> to Poland, Romania, Egypt, Saudi. Owns Hanwha Systems (C4I, EW). Korean re-rating in progress.</div>
+        </div>
+        <div class="it" data-ticker="AM">
+          <div class="sr"><span class="s">AM</span><span class="e">EPA</span></div>
+          <div class="nn">Dassault Aviation</div>
+          <div class="dd"><b>Rafale</b> export book (India, Egypt, UAE, Indonesia, Serbia, Croatia). Free cash flow inflection as deliveries accelerate into 2027.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====  05 TUNGSTEN / ALM + EQR  ===== -->
+<section id="s-05" data-ticker="ALM">
+  <div class="watermark">05</div>
+  <div class="wrap">
+    <div class="meta rv"><span class="n">05</span><span>Tungsten &middot; two flagships, one thesis</span><span class="dash"></span><span class="coord">TOP PICKS // NASDAQ:ALM + ASX:EQR</span></div>
+    <h2 class="rv d1">The only <em>Western tungsten producers</em><br/>at scale.</h2>
+
+    <div class="cm-overview rv d2" style="margin-top:32px">
+      <div class="c"><div class="hd">Chinese controls</div><div class="bd">First imposed <b>Feb 2025</b>, tightened in 2026. Tungsten is essential for armor-piercing penetrators, APFSDS rounds, milling tools, semiconductor wire-saws.</div></div>
+      <div class="c"><div class="hd">Sangdong mine &middot; South Korea</div><div class="bd">Reaching production in 2026. Expected to supply <b>over 80% of global non-China tungsten</b>.</div></div>
+      <div class="c"><div class="hd">Options liquidity</div><div class="bd">NASDAQ uplift Jul 2025 with US$90m IPO, then US$129m Dec 2025 follow-on. <b>Liquid options</b> make this leveragable even after the run.</div></div>
+    </div>
+
+    <div class="flagship rv d3" style="margin-top:32px" data-ticker="ALM">
+      <div class="flagship-left">
+        <div class="ts">
+          <span class="sym">ALM</span>
+          <span class="ex">NASDAQ &middot; also TSX:AII</span>
+          <span class="nm">Almonty Industries</span>
+        </div>
+
+        <p class="tagline">The only Western pure-play that can plausibly sign a <b>DPA Title III contract</b> inside twelve months.</p>
+
+        <ul class="bullets">
+          <li data-n="FEEDSTOCK"><b>Sangdong commissioning</b> through 2026. APT (ammonium paratungstate) sales into Western defense supply chains begin Q2-Q4 2026.</li>
+          <li data-n="OPTIONALITY">Molybdenum resource at Sangdong; acquired <b>Montana Gentung Browns Lake</b> tungsten project.</li>
+          <li data-n="BOARDROOM">Former US Army generals on the board. DoD Critical Minerals Forum participation and <b>American Defense International</b> partnership.</li>
+          <li data-n="PAPER">Jul 2025 NASDAQ uplift + US$90m IPO. Dec 2025 follow-on US$129m. Balance sheet primed for ramp.</li>
+        </ul>
+      </div>
+      <div class="flagship-right">
+        <div class="mono caps" style="color:var(--muted);margin-bottom:14px">// 9-12 MONTH CATALYSTS</div>
+        <ul class="bullets">
+          <li data-n="01"><b>Sangdong first production</b></li>
+          <li data-n="02"><b>First APT sales into Western defense supply chains</b></li>
+          <li data-n="03"><b>DPA Title III</b> contract announcement</li>
+          <li data-n="04"><b>Molybdenum resource</b> declaration</li>
+        </ul>
+        <div class="rr-grid">
+          <div class="b pos"><div class="h"><span>Upside profile</span><span class="dot"></span></div><div class="v">Leverageable</div><div class="t">Liquid options let you re-risk the underlying after a run.</div></div>
+          <div class="b neg"><div class="h"><span>Principal risk</span><span class="dot"></span></div><div class="v">Ramp</div><div class="t">Sangdong commissioning execution risk.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flagship rv d2" style="margin-top:24px" data-ticker="EQR">
+      <div class="flagship-left">
+        <div class="ts">
+          <span class="sym">EQR</span>
+          <span class="ex">ASX</span>
+          <span class="nm">EQ Resources</span>
+        </div>
+
+        <p class="tagline">The <b>already-producing</b> Western complement to Almonty &mdash; two operating mines, record APT prices, and a cashflow story that doesn&apos;t wait on Sangdong commissioning.</p>
+
+        <ul class="bullets">
+          <li data-n="ASSETS">Two operating mines: <b>Mt Carbine</b> in Far North Queensland and <b>Barruecopardo / Saloro</b> in Salamanca, Spain. Only ASX-listed tungsten producer with European production on the ground today.</li>
+          <li data-n="PRODUCTION"><b>Q4 CY25 production +33% QoQ</b> to 38,292 mtu. Daily and monthly records at both operations. Recoveries pushed above 80% via XRT ore-sorting upgrades.</li>
+          <li data-n="PRICE">APT price <b>US$900/mtu</b> in early Jan 2026, +42% QoQ and near decade highs. Direct leverage to ongoing China export controls without Sangdong ramp risk.</li>
+          <li data-n="OFFTAKES">Five-year <b>Traxys offtake</b> for minimum 7,000t concentrate (~A$400m notional). Multi-year Elmet Technologies offtake. Masan allocation at Mt Carbine. Long-dated revenue visibility.</li>
+        </ul>
+      </div>
+      <div class="flagship-right">
+        <div class="mono caps" style="color:var(--muted);margin-bottom:14px">// 9-12 MONTH CATALYSTS</div>
+        <ul class="bullets">
+          <li data-n="01"><b>Iolanthe Vein</b> high-grade development at Mt Carbine (Q1 2026 target)</li>
+          <li data-n="02"><b>Saloro recovery uplift</b> 62% &rarr; 70% target</li>
+          <li data-n="03">Potential <b>Tungsten Metals Group</b> acquisition &mdash; downstream integration</li>
+          <li data-n="04">FY26 earnings inflection on full-year APT repricing</li>
+        </ul>
+        <div class="rr-grid">
+          <div class="b pos"><div class="h"><span>Upside profile</span><span class="dot"></span></div><div class="v">Cashflow</div><div class="t">Operating leverage on a largely fixed cost base as APT reprices higher.</div></div>
+          <div class="b neg"><div class="h"><span>Principal risk</span><span class="dot"></span></div><div class="v">Dilution</div><div class="t">Micro-cap balance sheet still sensitive to tungsten price reversion and capex for Iolanthe underground.</div></div>
+        </div>
+
+        <div style="margin-top:22px;padding-top:18px;border-top:1px solid var(--line)">
+          <div class="mono caps" style="color:var(--muted);margin-bottom:10px">// WHY BOTH, NOT EITHER</div>
+          <div style="font-size:14px;line-height:1.55;color:var(--text-2)">
+            <b>ALM</b> is the option-rich, scale-when-it-lands play on Sangdong + DPA Title III. <b>EQR</b> is producing right now, capturing the price spike directly, with Spain optionality that Almonty doesn&apos;t have. They solve different halves of the same thesis.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====  06 ANTIMONY / LRV  ===== -->
+<section id="s-06" data-ticker="LRV">
+  <div class="watermark">06</div>
+  <div class="wrap">
+    <div class="meta rv"><span class="n">06</span><span>Antimony &middot; near-term producers</span><span class="dash"></span><span class="coord">TOP PICK // ASX:LRV</span></div>
+    <h2 class="rv d1">Hostile-bid <em>floor</em>,<br/>first production mid-2026.</h2>
+
+    <p class="body rv d2" style="margin-top:28px">Antimony is essential for armor-piercing ammunition, tracers, flame retardants and lead-acid batteries. The Chinese export controls bite just as Larvotto&apos;s Hillgrove project in NSW targets first production &mdash; and the asset has already drawn a <strong>formal acquisition proposal from United States Antimony Corp</strong>, validating the asset&apos;s strategic value and creating a floor bid.</p>
+
+    <div class="flagship rv d3" style="margin-top:20px" data-ticker="LRV">
+      <div class="flagship-left">
+        <div class="ts">
+          <span class="sym">LRV</span><span class="ex">ASX</span>
+          <span class="nm">Larvotto Resources</span>
+        </div>
+        <p class="tagline">The <b>simplest high-conviction bet</b> in the antimony basket &mdash; a hostile-bid floor is already established.</p>
+
+        <ul class="bullets">
+          <li data-n="ASSET"><b>Hillgrove antimony-gold project</b> in NSW, mid-2026 first production &mdash; timed exactly as China controls bite.</li>
+          <li data-n="BID"><b>USAC acquisition proposal</b> validates strategic value and creates a floor.</li>
+          <li data-n="MARKET">Antimony market structurally short &mdash; 2024/25 China quota tightening drove prices to decade highs.</li>
+        </ul>
+      </div>
+      <div class="flagship-right">
+        <div class="mono caps" style="color:var(--muted);margin-bottom:14px">// 9-12 MONTH CATALYSTS</div>
+        <ul class="bullets">
+          <li data-n="01"><b>Hillgrove first production</b></li>
+          <li data-n="02"><b>Bid resolution</b> &mdash; acceptance, competing bid, or standalone ramp</li>
+        </ul>
+        <div class="rr-grid">
+          <div class="b pos"><div class="h"><span>Upside</span><span class="dot"></span></div><div class="v">Binary</div><div class="t">Bid takeout &ndash; or standalone ramp into spot antimony.</div></div>
+          <div class="b neg"><div class="h"><span>Risk</span><span class="dot"></span></div><div class="v">Price</div><div class="t">Antimony price normalization if controls loosen.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv d2" style="margin-top:36px">
+      <div class="mono caps" style="color:var(--muted);margin-bottom:14px">// ANTIMONY BASKET</div>
+      <div class="basket">
+        <div class="it" data-ticker="MND">
+          <div class="sr"><span class="s">MND</span><span class="e">TSX</span></div>
+          <div class="nn">Mandalay Resources</div>
+          <div class="dd"><b>Costerfield</b>, Victoria AU &mdash; currently producing antimony-gold concentrate. Rare case of real-world cashflow inside the antimony basket, not a development story.</div>
+        </div>
+        <div class="it" data-ticker="MILI">
+          <div class="sr"><span class="s">MILI</span><span class="e">CSE</span></div>
+          <div class="nn">Military Metals</div>
+          <div class="dd"><b>Trojarova project</b>, Slovakia. European-sourced feedstock angle &mdash; aligns directly with EU critical-raw-materials list.</div>
+        </div>
+      </div>
+      <div class="mono caps" style="color:var(--muted);margin-top:16px;font-size:9.5px;letter-spacing:.22em">// AT4 (Utah) + FXG (Alaska) intentionally excluded &mdash; US-asset antimony is a separate DPA thesis, not this book.</div>
+    </div>
+  </div>
+</section>
+
+<!-- =====  07 REE / ARU  ===== -->
+<section id="s-07" data-ticker="ARU">
+  <div class="watermark">07</div>
+  <div class="wrap">
+    <div class="meta rv"><span class="n">07</span><span>Rare earths &middot; Arafura financing</span><span class="dash"></span><span class="coord">TOP PICK // ASX:ARU</span></div>
+    <h2 class="rv d1">Cleaner financing path than <em>Lynas</em>.</h2>
+
+    <p class="body rv d2" style="margin-top:28px">The Australian rare-earth universe &mdash; Lynas, Iluka, Arafura, Northern Minerals, Hastings &mdash; re-rated in late 2025 after the US&ndash;Australia Critical Minerals Framework designated <strong>Nolans as one of only two priority projects</strong>, backed by Export Finance Australia&apos;s up-to-US$100m conditional equity commitment and a US$300m EXIM letter of interest.</p>
+
+    <div class="flagship rv d3" style="margin-top:20px" data-ticker="ARU">
+      <div class="flagship-left">
+        <div class="ts">
+          <span class="sym">ARU</span><span class="ex">ASX</span>
+          <span class="nm">Arafura Rare Earths</span>
+        </div>
+        <p class="tagline">Trades at a <b>steeper discount</b> to post-FID NAV than Lynas, which is already producing.</p>
+        <ul class="bullets">
+          <li data-n="CATALYST"><b>FID and full financing close</b> is the binary catalyst.</li>
+          <li data-n="BALANCE">A$200m NRFC term sheet plus offtake with <b>Siemens Gamesa</b> de-risks commercial economics.</li>
+          <li data-n="PRIORITY">Designated priority project under US-Australia CMF with EFA/EXIM structured support.</li>
+        </ul>
+      </div>
+      <div class="flagship-right">
+        <div class="mono caps" style="color:var(--muted);margin-bottom:14px">// 9-12 MONTH CATALYSTS</div>
+        <ul class="bullets">
+          <li data-n="01"><b>FID close</b> with EFA + EXIM tranches</li>
+          <li data-n="02"><b>Offtake expansions</b> beyond Siemens Gamesa</li>
+        </ul>
+        <div class="rr-grid">
+          <div class="b pos"><div class="h"><span>Upside</span><span class="dot"></span></div><div class="v">Rerate</div><div class="t">Post-FID NAV convergence with Lynas.</div></div>
+          <div class="b neg"><div class="h"><span>Risk</span><span class="dot"></span></div><div class="v">NdPr</div><div class="t">NdPr price softens the economics if global wind slows.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv d2" style="margin-top:36px">
+      <div class="mono caps" style="color:var(--muted);margin-bottom:14px">// SECONDARY PICKS</div>
+      <div class="basket">
+        <div class="it" data-ticker="ILU">
+          <div class="sr"><span class="s">ILU</span><span class="e">ASX</span></div>
+          <div class="nn">Iluka Resources</div>
+          <div class="dd"><b>Eneabba refinery</b> optionality, 2027 commissioning. Market still treats it as a mineral sands company.</div>
+        </div>
+        <div class="it" data-ticker="HAS">
+          <div class="sr"><span class="s">HAS</span><span class="e">ASX</span></div>
+          <div class="nn">Hastings Technology Metals</div>
+          <div class="dd">Under the <b>Wyloo JV</b> structure, targeting first production in 2026 at Yangibana.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====  08 TITANIUM / IPX  ===== -->
+<section id="s-08" data-ticker="IPX">
+  <div class="watermark">08</div>
+  <div class="wrap">
+    <div class="meta rv"><span class="n">08</span><span>Titanium &middot; the NATO onshoring exception</span><span class="dash"></span><span class="coord">TOP PICK // ASX:IPX &middot; NASDAQ:IPX</span></div>
+    <h2 class="rv d1">A <em>buyable dislocation</em>,<br/>pending resolution.</h2>
+
+    <div class="flagship rv d2" style="margin-top:32px" data-ticker="IPX">
+      <div class="flagship-left">
+        <div class="ts">
+          <span class="sym">IPX</span><span class="ex">NASDAQ &middot; ASX</span>
+          <span class="nm">IperionX</span>
+        </div>
+
+        <p class="tagline">US became <b>100% reliant</b> on imported titanium sponge in 2023; China controls <b>~67%</b> of global sponge production &mdash; a national-security single-point-of-failure.</p>
+
+        <p class="body" style="margin-top:10px;color:var(--muted);font-size:13.5px"><em>Included as the one deliberate exception in this book.</em> IperionX is ASX-incorporated but its flagship asset is in Virginia &mdash; the only reason it earns a seat here is that the <b>titanium sovereignty thesis has no European equivalent</b>: there is no listed non-Chinese sponge producer outside the US. If one emerges, this slot gets reassigned.</p>
+
+        <ul class="bullets">
+          <li data-n="AUTHORITY"><b>US$146m combined DoD authority</b> &mdash; US$47.1m IBAS + US$99m SBIR Phase III.</li>
+          <li data-n="PLANT">Aims for <b>1,400 tpa</b> at its Virginia campus by mid-2027 using proprietary <b>HAMR technology</b> on domestic rutile and recycled scrap.</li>
+          <li data-n="DEMAND">Jan 2026 prototype order from <b>American Rheinmetall</b> for US Army ground combat components; Navy pump-component work with Carver Pump.</li>
+          <li data-n="CAVEAT"><b>13 Mar 2026 reporting-error disclosure</b> triggered a ~27% two-day drawdown and securities-law firm investigations. <span class="tag">DISLOCATION</span></li>
+        </ul>
+      </div>
+      <div class="flagship-right">
+        <div class="mono caps" style="color:var(--muted);margin-bottom:14px">// 9-12 MONTH CATALYSTS</div>
+        <ul class="bullets">
+          <li data-n="01"><b>Restatement resolution</b> without material impact</li>
+          <li data-n="02"><b>Virginia ramp milestones</b></li>
+          <li data-n="03"><b>Positive EBITDA by end-2026</b> per management</li>
+        </ul>
+        <div class="rr-grid">
+          <div class="b pos"><div class="h"><span>Upside</span><span class="dot"></span></div><div class="v">Binary</div><div class="t">Liquid NASDAQ options make this the best leveraged expression in titanium.</div></div>
+          <div class="b neg"><div class="h"><span>Risk</span><span class="dot"></span></div><div class="v">Securities law</div><div class="t">Outcome of reporting-error disclosure &mdash; not accounting buyer&apos;s own.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====  09 PGM-Cu / CHN  ===== -->
+<section id="s-09" data-ticker="CHN">
+  <div class="watermark">09</div>
+  <div class="wrap">
+    <div class="meta rv"><span class="n">09</span><span>PGM &middot; Ni &middot; Cu &middot; Co</span><span class="dash"></span><span class="coord">TOP PICK // ASX:CHN</span></div>
+    <h2 class="rv d1"><em>Deepest NAV discount</em><br/>in the sector.</h2>
+
+    <p class="display-lede rv d2" style="margin-top:28px">Chalice Mining is the single most mispriced development-stage critical-minerals asset I can identify.</p>
+
+    <div class="flagship rv d3" style="margin-top:32px" data-ticker="CHN">
+      <div class="flagship-left">
+        <div class="ts">
+          <span class="sym">CHN</span><span class="ex">ASX</span>
+          <span class="nm">Chalice Mining</span>
+        </div>
+
+        <div class="stat-grid-sm" style="margin-top:0;margin-bottom:24px">
+          <div class="c"><div class="k">Cumulative free cash flow</div><div class="v">A$<em>4.7bn</em></div><div class="d">23-year open-pit mine plan &middot; A$6.2bn at spot</div></div>
+          <div class="c"><div class="k">Post-tax NPV</div><div class="v">A$<em>1.0bn</em></div><div class="d">A$1.5bn at spot &mdash; <b>above current market cap</b></div></div>
+          <div class="c"><div class="k">3E PGM resource</div><div class="v">17<em>Moz</em></div><div class="d">plus 960kt nickel, 540kt copper, 96kt cobalt</div></div>
+          <div class="c"><div class="k">In-plan utilization</div><div class="v">~<em>50</em>%</div><div class="d">only half of the resource is in the 23-year mine plan</div></div>
+        </div>
+
+        <p class="tagline">The <b>only Western-controlled</b> large-scale alternative at development stage &mdash; 93% of current global PGM supply is Russia, South Africa, Zimbabwe.</p>
+      </div>
+      <div class="flagship-right">
+        <ul class="bullets">
+          <li data-n="LOCALE">70km from Perth, on Chalice-owned farmland. WA <b>Strategic Project</b> and Federal <b>Major Project</b> status.</li>
+          <li data-n="PARTNER"><b>Mitsubishi</b> partnership in place. A$71.3m cash on balance sheet.</li>
+          <li data-n="TECH">Key metallurgical blocker resolved &mdash; nickel float working at <b>~8% concentrate</b>, scrapping the prior POX requirement.</li>
+        </ul>
+
+        <div style="margin-top:22px" class="mono caps" style="color:var(--muted);margin-bottom:14px">// 9-12 MONTH CATALYSTS</div>
+        <ul class="bullets">
+          <li data-n="01"><b>Offtake / funding announcements</b> with Mitsubishi and/or Japanese banks post-PFS</li>
+          <li data-n="02">DFS first-half 2027 is the <b>final rerate</b> event</li>
+        </ul>
+        <div class="rr-grid">
+          <div class="b pos"><div class="h"><span>Upside</span><span class="dot"></span></div><div class="v">NAV gap</div><div class="t">Market cap &lt; post-tax NPV. Convergence toward NAV as DFS approaches.</div></div>
+          <div class="b neg"><div class="h"><span>Principal risk</span><span class="dot"></span></div><div class="v">Pd &lt; $900</div><div class="t">Palladium pressured by ICE-to-BEV transition. Size small with conviction.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====  10 SILVER / DSV  ===== -->
+<section id="s-10" data-ticker="DSV">
+  <div class="watermark">10</div>
+  <div class="wrap">
+    <div class="meta rv"><span class="n">10</span><span>Silver &middot; cash-rich hybrid</span><span class="dash"></span><span class="coord">TOP PICK // TSX:DSV</span></div>
+    <h2 class="rv d1">Producing gold floor.<br/><em>Free</em> silver optionality.</h2>
+
+    <div class="flagship rv d2" style="margin-top:32px" data-ticker="DSV">
+      <div class="flagship-left">
+        <div class="ts">
+          <span class="sym">DSV</span><span class="ex">TSX</span>
+          <span class="nm">Discovery Silver</span>
+        </div>
+        <p class="tagline">No longer just a silver developer &mdash; Porcupine Complex transformation delivered <b>A$86.8m free cash flow in Q3 2025 alone</b>, with A$279m cash fully funding Cordero.</p>
+
+        <ul class="bullets">
+          <li data-n="GOLD"><b>Porcupine Complex</b> (closed 2025) generating cash, fully funding the Cordero silver build.</li>
+          <li data-n="CORDERO">Cordero FS: 19-year mine life, <b>37Moz AgEq</b> annual production Y1-Y12, sub-US$12.50/oz AISC.</li>
+          <li data-n="NPV">NPV at US$22 silver &rarr; <b>US$1.2bn</b>, expanding to <b>US$2.2bn</b> in Y4 and <b>US$3.3bn</b> at current silver prices.</li>
+          <li data-n="STRUCT">Silver industrial demand in deficit <b>5 consecutive years</b>; Cordero is the largest undeveloped primary silver deposit globally.</li>
+        </ul>
+      </div>
+      <div class="flagship-right">
+        <div class="mono caps" style="color:var(--muted);margin-bottom:14px">// 9-12 MONTH CATALYSTS</div>
+        <ul class="bullets">
+          <li data-n="01"><b>Updated Porcupine technical report</b> in 2026</li>
+          <li data-n="02"><b>Initial TVZ Zone resource</b> H1 2026</li>
+        </ul>
+        <div class="rr-grid">
+          <div class="b pos"><div class="h"><span>Upside</span><span class="dot"></span></div><div class="v">Floor+</div><div class="t">Against producing gold floor, Cordero optionality is effectively free.</div></div>
+          <div class="b neg"><div class="h"><span>Risk</span><span class="dot"></span></div><div class="v">Permitting</div><div class="t">Mexico permitting timeline at Cordero.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====  11 ENRICHMENT / SLX  ===== -->
+<section id="s-11" data-ticker="SLX">
+  <div class="watermark">11</div>
+  <div class="wrap">
+    <div class="meta rv"><span class="n">11</span><span>Uranium enrichment &middot; HALEU</span><span class="dash"></span><span class="coord">TOP PICK // ASX:SLX</span></div>
+    <h2 class="rv d1">The <em>untraveled</em><br/>uranium expression.</h2>
+
+    <p class="body rv d2" style="margin-top:28px">Spot uranium and the producer basket &mdash; Cameco, NexGen, Paladin, Boss, Deep Yellow, Bannerman, Denison &mdash; have already compounded significantly. The untraveled expression is <strong>enrichment technology</strong>.</p>
+
+    <div class="flagship rv d3" style="margin-top:24px" data-ticker="SLX">
+      <div class="flagship-left">
+        <div class="ts">
+          <span class="sym">SLX</span><span class="ex">ASX</span>
+          <span class="nm">Silex Systems</span>
+        </div>
+        <p class="tagline">Owns <b>51%</b> of Global Laser Enrichment (Cameco 49%) &mdash; the world&apos;s <b>first commercial laser-enrichment plant</b>.</p>
+
+        <ul class="bullets">
+          <li data-n="TRL">GLE achieved <b>Technology Readiness Level 6</b> in October 2025.</li>
+          <li data-n="REG">NRC accepted GLE&apos;s full license application in Aug 2025; <b>draft EIS</b> issued in March 2026.</li>
+          <li data-n="FEED">2016 DOE agreement covers <b>&gt;200,000 tonnes</b> of depleted-tails feedstock.</li>
+          <li data-n="TARGET">Potentially ranking <b>Tier 1</b> at ~5m lbs annual U3O8-equivalent output. Centrus is the centrifuge-centric competitor &mdash; Silex&apos;s laser advantage is energy intensity and HALEU optionality.</li>
+        </ul>
+      </div>
+      <div class="flagship-right">
+        <div class="mono caps" style="color:var(--muted);margin-bottom:14px">// 9-12 MONTH CATALYSTS</div>
+        <ul class="bullets">
+          <li data-n="01"><b>HALEU offtake</b> with one of X-energy / TerraPower / Oklo / Westinghouse eVinci</li>
+          <li data-n="02"><b>Final NRC license</b> progression</li>
+          <li data-n="03">First production targeted <b>~2030</b></li>
+        </ul>
+        <div class="rr-grid">
+          <div class="b pos"><div class="h"><span>Upside</span><span class="dot"></span></div><div class="v">+100-200%</div><div class="t">If any advanced-reactor developer signs a HALEU offtake with GLE in the next 9-12 months.</div></div>
+          <div class="b neg"><div class="h"><span>Risk</span><span class="dot"></span></div><div class="v">Binary</div><div class="t">NRC licensing slip.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====  12 CONTRARIAN / VUL  ===== -->
+<section id="s-12" data-ticker="VUL">
+  <div class="watermark">12</div>
+  <div class="wrap">
+    <div class="meta rv"><span class="n">12</span><span>Contrarian basket &middot; Cu &middot; graphite &middot; Li</span><span class="dash"></span><span class="coord">CONTRARIAN TOP PICK // ASX:VUL</span></div>
+    <h2 class="rv d1">Structurally deficit<br/>and <em>deliberately contrarian</em>.</h2>
+
+    <div class="rv d2" style="margin-top:32px">
+      <div class="mono caps" style="color:var(--muted);margin-bottom:14px">// COPPER &middot; DISCOVERY + LEVERAGE</div>
+      <div class="basket">
+        <div class="it" data-ticker="FOM">
+          <div class="sr"><span class="s">FOM</span><span class="e">TSX</span></div>
+          <div class="nn">Foran Mining</div>
+          <div class="dd">Discovery optionality. High-grade McIlvenna Bay orientation.</div>
+        </div>
+        <div class="it" data-ticker="NGEX">
+          <div class="sr"><span class="s">NGEX</span><span class="e">TSX</span></div>
+          <div class="nn">NGEx Minerals</div>
+          <div class="dd">Discovery optionality. South American copper-gold portfolio.</div>
+        </div>
+        <div class="it" data-ticker="SLS">
+          <div class="sr"><span class="s">SLS</span><span class="e">TSX</span></div>
+          <div class="nn">Solaris Resources</div>
+          <div class="dd">Discovery optionality. Warintza and adjacent Ecuador portfolio.</div>
+        </div>
+        <div class="it" data-ticker="CS">
+          <div class="sr"><span class="s">CS</span><span class="e">TSX</span></div>
+          <div class="nn">Capstone Copper</div>
+          <div class="dd"><b>Operating leverage</b> to copper &gt; US$5.00/lb. Producing base.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv d3" style="margin-top:32px">
+      <div class="mono caps" style="color:var(--muted);margin-bottom:14px">// GRAPHITE &middot; IRA-FEOC LEVERAGE</div>
+      <div class="basket">
+        <div class="it" data-ticker="SYR">
+          <div class="sr"><span class="s">SYR</span><span class="e">ASX</span></div>
+          <div class="nn">Syrah Resources</div>
+          <div class="dd">Distressed valuation. Leveraged to IRA-FEOC anode rules locking out Chinese material. <span class="pill n" style="margin-top:6px;display:inline-block">execution risk</span></div>
+        </div>
+        <div class="it" data-ticker="NMG">
+          <div class="sr"><span class="s">NMG</span><span class="e">TSX</span></div>
+          <div class="nn">Nouveau Monde Graphite</div>
+          <div class="dd">Leveraged to <b>DOE loan progress</b>. <span class="pill n" style="margin-top:6px;display:inline-block">execution risk</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flagship rv d3" style="margin-top:40px" data-ticker="VUL">
+      <div class="flagship-left">
+        <div class="ts">
+          <span class="sym">VUL</span><span class="ex">ASX &middot; ETR</span>
+          <span class="nm">Vulcan Energy Resources</span>
+        </div>
+        <p class="tagline">Lithium is the <b>deliberate contrarian pick</b> &mdash; prices bottomed late 2025; Ganfeng guides to Q1 2026 profitability.</p>
+
+        <div class="stat-grid-sm" style="margin-top:0;margin-bottom:18px">
+          <div class="c"><div class="k">Price/book</div><div class="v"><em>1.2</em>x</div><div class="d">versus peer-group 5.8x</div></div>
+          <div class="c"><div class="k">Independent DCF target</div><div class="v">A$<em>28</em></div><div class="d">versus ~A$3.72 current</div></div>
+          <div class="c"><div class="k">Lionheart capacity</div><div class="v">24k<em>tpa</em> LHM</div><div class="d">~500,000 EV batteries + 275 GWh/yr renewable power</div></div>
+          <div class="c"><div class="k">Offtakes</div><div class="v">4</div><div class="d">Volkswagen, Renault, Stellantis, Umicore</div></div>
+        </div>
+      </div>
+      <div class="flagship-right">
+        <ul class="bullets">
+          <li data-n="EU"><b>EU Critical Raw Materials strategic-project</b> status.</li>
+          <li data-n="TAX">14 Apr 2026 royalty exemption from <b>Rhineland-Palatinate</b> through 2030.</li>
+          <li data-n="RISK">Wide DCF-price gap reflects execution skepticism on the <b>geothermal-lithium dual-process</b>.</li>
+        </ul>
+        <div class="mono caps" style="color:var(--muted);margin:16px 0 10px">// 9-12 MONTH CATALYSTS</div>
+        <ul class="bullets">
+          <li data-n="01"><b>Lionheart first lithium</b> Q3 2026</li>
+          <li data-n="02"><b>Stable pilot-plant throughput</b> demonstration</li>
+        </ul>
+        <div class="rr-grid">
+          <div class="b pos"><div class="h"><span>Upside</span><span class="dot"></span></div><div class="v">+100% cons.</div><div class="t">If Vulcan hits Q3 2026 first-lithium milestone.</div></div>
+          <div class="b neg"><div class="h"><span>Risk</span><span class="dot"></span></div><div class="v">Execution</div><div class="t">Dual-process throughput + lithium price.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====  13 MATRIX  ===== -->
+<section id="s-13">
+  <div class="watermark">13</div>
+  <div class="wrap">
+    <div class="meta rv"><span class="n">13</span><span>Decision matrix</span><span class="dash"></span><span class="coord">// 14 NAMES &middot; CONDENSED</span></div>
+    <h2 class="rv d1">The <em>book</em>,<br/>on one page.</h2>
+
+    <div class="matrix rv d2">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:16%">Pick</th>
+            <th style="width:12%">Ticker</th>
+            <th style="width:14%">Sub-vertical</th>
+            <th style="width:28%">12-month catalyst</th>
+            <th style="width:20%">Downside risk</th>
+            <th style="width:10%;text-align:right">Conviction</th>
+          </tr>
+        </thead>
+        <tbody id="matrixBody">
+          <tr class="rv" style="--w:95%"><td class="sv">Avio<small>Missile propulsion</small></td><td class="sym">AVI<small>BIT</small></td><td>Propulsion</td><td class="vv">Narew follow-on; US SRM plant</td><td class="rsk">Space-launch delays noise</td><td class="up">95%<span>high</span><div class="bar-mini"><i></i></div></td></tr>
+          <tr class="rv" style="--w:92%"><td class="sv">Chalice Mining<small>PGM-Ni-Cu-Co</small></td><td class="sym">CHN<small>ASX</small></td><td>PGM/Cu</td><td class="vv">Mitsubishi offtake; DFS progress</td><td class="rsk">Palladium price</td><td class="up">92%<span>high</span><div class="bar-mini"><i></i></div></td></tr>
+          <tr class="rv" style="--w:88%"><td class="sv">Almonty<small>Western tungsten scale</small></td><td class="sym">ALM<small>NASDAQ</small></td><td>Tungsten</td><td class="vv">Sangdong first production; DPA Title III</td><td class="rsk">Sangdong ramp execution</td><td class="up">88%<span>high</span><div class="bar-mini"><i></i></div></td></tr>
+          <tr class="rv" style="--w:85%"><td class="sv">EQ Resources<small>Producing Western tungsten</small></td><td class="sym">EQR<small>ASX</small></td><td>Tungsten</td><td class="vv">Iolanthe Vein; Saloro recovery uplift</td><td class="rsk">APT price; micro-cap dilution</td><td class="up">85%<span>high</span><div class="bar-mini"><i></i></div></td></tr>
+          <tr class="rv" style="--w:80%"><td class="sv">Silex Systems<small>Laser enrichment</small></td><td class="sym">SLX<small>ASX</small></td><td>Enrichment</td><td class="vv">HALEU offtake; NRC license</td><td class="rsk">Regulatory slip</td><td class="up">80%<span>high</span><div class="bar-mini"><i></i></div></td></tr>
+          <tr class="rv" style="--w:82%"><td class="sv">Cohort plc<small>C-UAS, naval, SATCOM</small></td><td class="sym">CHRT<small>LON</small></td><td>C-UAS/Naval</td><td class="vv">Chess margin recovery; new MCL orders</td><td class="rsk">Sensors &amp; Effectors margin</td><td class="up">82%<span>high</span><div class="bar-mini"><i></i></div></td></tr>
+          <tr class="rv" style="--w:84%"><td class="sv">Exail Technologies<small>Autonomous naval + INS</small></td><td class="sym">EXA<small>EPA</small></td><td>Unmanned/EW</td><td class="vv">rMCM USV deliveries; German MCM tender</td><td class="rsk">Program milestone timing</td><td class="up">84%<span>high</span><div class="bar-mini"><i></i></div></td></tr>
+          <tr class="rv" style="--w:78%"><td class="sv">Kongsberg<small>NSM/JSM + RWS</small></td><td class="sym">KOG<small>OSL</small></td><td>Missiles/Naval</td><td class="vv">NSM/JSM follow-on orders; backlog conversion</td><td class="rsk">Already re-rated; crowded</td><td class="up">78%<span>med-high</span><div class="bar-mini"><i></i></div></td></tr>
+          <tr class="rv" style="--w:78%"><td class="sv">Discovery Silver<small>Silver + producing gold</small></td><td class="sym">DSV<small>TSX</small></td><td>Silver/Gold</td><td class="vv">Porcupine updated technical report</td><td class="rsk">Mexico permitting</td><td class="up">78%<span>med-high</span><div class="bar-mini"><i></i></div></td></tr>
+          <tr class="rv" style="--w:76%"><td class="sv">Larvotto<small>Hostile-bid floor</small></td><td class="sym">LRV<small>ASX</small></td><td>Antimony</td><td class="vv">Hillgrove first production; bid resolution</td><td class="rsk">Antimony price normalization</td><td class="up">76%<span>med-high</span><div class="bar-mini"><i></i></div></td></tr>
+          <tr class="rv" style="--w:70%"><td class="sv">IperionX<small>Titanium onshoring</small></td><td class="sym">IPX<small>NASDAQ</small></td><td>Titanium</td><td class="vv">Restatement resolution; Virginia ramp</td><td class="rsk">Securities-law outcome</td><td class="up">70%<span>medium</span><div class="bar-mini"><i></i></div></td></tr>
+          <tr class="rv" style="--w:72%"><td class="sv">Arafura<small>NdPr/REE</small></td><td class="sym">ARU<small>ASX</small></td><td>Rare Earth</td><td class="vv">FID close with EFA/EXIM</td><td class="rsk">NdPr price</td><td class="up">72%<span>medium</span><div class="bar-mini"><i></i></div></td></tr>
+          <tr class="rv" style="--w:68%"><td class="sv">Creotech<small>Microsatellites</small></td><td class="sym">CRI<small>WSE</small></td><td>Space</td><td class="vv">Mikroglob launches; Twardowski Phase B</td><td class="rsk">Capital raise dilution</td><td class="up">68%<span>medium</span><div class="bar-mini"><i></i></div></td></tr>
+          <tr class="rv" style="--w:60%"><td class="sv">Vulcan Energy<small>Lithium, contrarian</small></td><td class="sym">VUL<small>ASX/ETR</small></td><td>Lithium</td><td class="vv">Lionheart first lithium</td><td class="rsk">Execution; lithium price</td><td class="up">60%<span>speculative</span><div class="bar-mini"><i></i></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- =====  14 RISKS  ===== -->
+<section id="s-14">
+  <div class="watermark">14</div>
+  <div class="wrap">
+    <div class="meta rv"><span class="n">14</span><span>What changes this call</span><span class="dash"></span><span class="coord">// TAIL CONDITIONS</span></div>
+    <h2 class="rv d1"><em>Three events</em>, together.</h2>
+
+    <p class="body rv d2" style="margin-top:28px">The thesis breaks if three things happen <strong>simultaneously</strong>. Any one in isolation is survivable by the basket; all three together would require cutting gross exposure.</p>
+
+    <div class="triplock rv d3">
+      <div class="h">// THE TRIPLE LOCK</div>
+      <div class="cond">
+        <div class="i">01</div>
+        <p>A genuine <strong>Russia-Ukraine settlement</strong> that the market believes sticks.</p>
+        <div class="i">02</div>
+        <p>A meaningful <strong>US-China critical-minerals detente</strong> lifting Chinese export controls on tungsten, antimony, gallium and germanium.</p>
+        <div class="i">03</div>
+        <p>A hawkish <strong>ECB / Fed pivot</strong> that compresses small-cap mining multiples.</p>
+      </div>
+    </div>
+
+    <div class="risks rv d3" style="margin-top:36px">
+      <div class="r">
+        <div class="n">SENTINEL 01</div>
+        <h4>NATO June 2026 communiqu&eacute;</h4>
+        <p>The &quot;3.5+1.5&quot; commitment has to translate into actual national-budget lines. Watch the summit language carefully for binding floors versus aspirational ceilings.</p>
+      </div>
+      <div class="r">
+        <div class="n">SENTINEL 02</div>
+        <h4>H2 2026 Chinese export-control amendments</h4>
+        <p>The next scheduled round. Loosening would compress the tungsten and antimony window; tightening the opposite.</p>
+      </div>
+      <div class="r">
+        <div class="n">SENTINEL 03</div>
+        <h4>Advanced-reactor HALEU signings</h4>
+        <p>X-energy, TerraPower, Oklo, Westinghouse eVinci. Any signed HALEU offtake with GLE re-prices SLX immediately.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====  15 SIZING  ===== -->
+<section id="s-15">
+  <div class="watermark">15</div>
+  <div class="wrap">
+    <div class="meta rv"><span class="n">15</span><span>Position sizing framework</span><span class="dash"></span><span class="coord">// PORTFOLIO-LEVEL DISCIPLINE</span></div>
+    <h2 class="rv d1">The conviction is the <em>portfolio</em>,<br/>not the name.</h2>
+
+    <div class="sizing">
+      <div class="sizing-ring rv d2">
+        <svg viewBox="0 0 340 340">
+          <defs>
+            <linearGradient id="rA" x1="0" x2="1">
+              <stop offset="0" stop-color="#f5a524"/>
+              <stop offset="1" stop-color="#ffbe4d"/>
+            </linearGradient>
+          </defs>
+          <!-- 4 liquid-options names -->
+          <circle cx="170" cy="170" r="125" fill="none" stroke="#202022" stroke-width="38"/>
+          <circle cx="170" cy="170" r="125" fill="none" stroke="url(#rA)" stroke-width="38"
+            stroke-dasharray="285 785" stroke-dashoffset="0" transform="rotate(-90 170 170)"
+            style="transition:stroke-dasharray 1.6s var(--ease-out)"/>
+          <!-- microcap hatched ring -->
+          <circle cx="170" cy="170" r="90" fill="none" stroke="#2a2a2d" stroke-width="22"/>
+          <circle cx="170" cy="170" r="90" fill="none" stroke="#eeece8" stroke-width="22"
+            stroke-dasharray="8 8" stroke-dashoffset="0" transform="rotate(-90 170 170)" opacity="0.75"/>
+
+          <text x="170" y="160" text-anchor="middle" fill="#eeece8" font-family="Fraunces" font-size="58" font-weight="300">14</text>
+          <text x="170" y="186" text-anchor="middle" fill="#84817b" font-family="JetBrains Mono" font-size="10" letter-spacing="2">NAMES</text>
+          <text x="170" y="210" text-anchor="middle" fill="#f5a524" font-family="JetBrains Mono" font-size="11" letter-spacing="2">~3X AVG RANGE</text>
+        </svg>
+        <div class="cap">// 4 liquid US options &middot; 10 overseas microcap anchors</div>
+      </div>
+
+      <div class="sizing-rules">
+        <div class="rv d3 rule">
+          <div class="n">RULE 01 &middot; OPTIONALITY</div>
+          <h4>Four names carry liquid US options.</h4>
+          <p><b>IperionX, Almonty</b>, and via ADRs <b>Hensoldt</b> and <b>Saab</b> allow defined-risk expression. Use options to leverage after underlying runs; do not initiate options on illiquid chains.</p>
+        </div>
+        <div class="rv d4 rule">
+          <div class="n">RULE 02 &middot; SIZING</div>
+          <h4>ASX and TSX-V microcaps at 1-3% notional each.</h4>
+          <p>Hard mental stop at the project-financing catalyst. Conviction comes from the portfolio, not from any single idea surviving a left-tail macro event.</p>
+        </div>
+        <div class="rv d5 rule">
+          <div class="n">RULE 03 &middot; DRAWDOWN</div>
+          <h4>Accept 30-40% drawdowns on individual names.</h4>
+          <p>In rearmament and re-onshoring cycles, the best risk-adjusted outcome comes from accepting volatility in exchange for the <b>100-200% upside</b> that policy-locked demand creates in bottleneck suppliers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====  FOOTER  ===== -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <div class="f-meta">// Closing note</div>
+        <h3>Policy-locked demand, physical supply that cannot respond, small enough to re-rate violently.</h3>
+        <p>The setup is the confluence &mdash; not any single contract, any single name, or any single catalyst.</p>
+      </div>
+      <div>
+        <div class="f-meta">// Universe</div>
+        <p><b style="color:var(--text)">11 flagship names</b> across propulsion, C-UAS, tungsten, antimony, rare earth, titanium, PGMs, silver, enrichment and lithium contrarian.</p>
+        <p style="margin-top:14px">Coverage indices: BIT, LON, NASDAQ, TSX, ASX, AEX, ETR, WSE.</p>
+      </div>
+      <div>
+        <div class="f-meta">// Cadence</div>
+        <p>Catalyst horizon: <b style="color:var(--amber)">9-12 months</b>. Review trigger: NATO June 2026 communiqu&eacute; and H2 2026 Chinese export-control amendments.</p>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span id="eggHint">// RESEARCH NOTE &middot; 04.18.2026 &middot; EX-US ALPHA BOOK<span class="cursor-blink"></span></span>
+      <span><a href="#s-00" class="u">Return to top</a></span>
+    </div>
+  </div>
+</footer>
+
+</main>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---------- TICKER TAPE ---------- */
+  const tkrData = [
+    ['AVI','35.95','-1.9'],['CHN','9.42','+2.4'],['ALM','8.15','+4.1'],['SLX','6.88','+1.2'],
+    ['CHRT','1238','-0.6'],['DSV','2.17','+3.0'],['LRV','0.88','+5.2'],['IPX','18.40','-27'],
+    ['ARU','0.31','+2.8'],['CRI','663','+11'],['VUL','3.72','-2.1'],['EOS','11.02','-0.9'],
+    ['HAG','83.00','+1.1'],['THEON','24.80','+3.3'],['SYR','0.26','-1.4'],['ILU','5.80','+0.7']
+  ];
+  const buildTkr = () => tkrData.concat(tkrData).map(([s,p,c])=>{
+    const v = parseFloat(c);
+    let cls = 'f';
+    if(v > 1) cls = 'u';
+    else if(v < -1) cls = 'd';
+    return `<span><b>${s}</b>${p}<i class="${cls}">${c}%</i></span>`;
+  }).join('');
+  const tkr = document.getElementById('tkr');
+  tkr.innerHTML = buildTkr();
+
+  /* ticker hover to reverse */
+  let revTimer;
+  tkr.parentElement.addEventListener('mouseenter',()=>{
+    revTimer = setTimeout(()=>tkr.classList.add('rev'),3000);
+  });
+  tkr.parentElement.addEventListener('mouseleave',()=>{
+    clearTimeout(revTimer);tkr.classList.remove('rev');
+  });
+
+  /* ---------- CLOCK ---------- */
+  const clk = document.getElementById('clock');
+  const updClk = ()=>{
+    const d = new Date();
+    const hh = String(d.getUTCHours()).padStart(2,'0');
+    const mm = String(d.getUTCMinutes()).padStart(2,'0');
+    const ss = String(d.getUTCSeconds()).padStart(2,'0');
+    clk.textContent = `${hh}:${mm}:${ss} UTC`;
+  };
+  updClk();setInterval(updClk,1000);
+
+  /* ---------- NAV ACTIVE STATE + PROGRESS ---------- */
+  const sections = Array.from(document.querySelectorAll('section[id^="s-"]'));
+  const navItems = Array.from(document.querySelectorAll('.nav-item'));
+  const navPr = document.getElementById('navpr');
+
+  const updActive = ()=>{
+    const y = window.scrollY + 180;
+    let cur = 0;
+    sections.forEach((s,i)=>{ if(s.offsetTop <= y) cur = i; });
+    navItems.forEach((n,i)=>n.classList.toggle('active', i===cur));
+
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    const pr = Math.min(100, (window.scrollY / max) * 100);
+    navPr.style.setProperty('--pr', pr + '%');
+    const nvv = document.getElementById('navprv');
+    if(nvv) nvv.textContent = Math.round(pr) + '%';
+  };
+  window.addEventListener('scroll', updActive, {passive:true});
+  updActive();
+
+  /* ---------- SCROLL REVEAL ---------- */
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  /* ---------- CARD CURSOR SPOTLIGHT ---------- */
+  document.querySelectorAll('.card, .flagship, .card-sm, .chart-primes, .triplock, .sizing-ring').forEach(c=>{
+    c.addEventListener('mousemove',(e)=>{
+      const r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      c.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  });
+
+  /* ---------- MOBILE BURGER ---------- */
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('nav');
+  if(burger){
+    burger.addEventListener('click',()=>nav.classList.toggle('open'));
+    navItems.forEach(n=>n.addEventListener('click',()=>nav.classList.remove('open')));
+  }
+
+  /* ---------- EASTER EGG 01: KONAMI ---------- */
+  const konami = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','KeyB','KeyA'];
+  let kidx = 0;
+  const alpha = document.getElementById('alpha');
+  window.addEventListener('keydown',(e)=>{
+    if(e.code === konami[kidx]){ kidx++; if(kidx === konami.length){
+        alpha.classList.add('show');
+        document.documentElement.style.setProperty('--amber-br','#ffe27a');
+        setTimeout(()=>alpha.classList.remove('show'), 4200);
+        kidx = 0;
+    }} else { kidx = (e.code === konami[0]) ? 1 : 0; }
+  });
+
+  /* ---------- EASTER EGG 02: TICKER TYPING ---------- */
+  const tickerMap = {};
+  document.querySelectorAll('[data-ticker]').forEach(el=>{
+    const t = el.dataset.ticker.toUpperCase();
+    (tickerMap[t] = tickerMap[t] || []).push(el);
+  });
+  let buffer = '';
+  let bufTimer;
+  window.addEventListener('keydown',(e)=>{
+    // ignore in inputs
+    if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
+    if(e.metaKey || e.ctrlKey || e.altKey) return;
+    if(/^[A-Za-z0-9]$/.test(e.key)){
+      buffer += e.key.toUpperCase();
+      buffer = buffer.slice(-6);
+      clearTimeout(bufTimer);
+      bufTimer = setTimeout(()=>buffer='', 1200);
+
+      // check for ticker match (3+ chars)
+      for(let len=6; len>=2; len--){
+        const tail = buffer.slice(-len);
+        if(tickerMap[tail]){
+          const target = tickerMap[tail][0];
+          // scroll section into view
+          const sec = target.closest('section') || target;
+          sec.scrollIntoView({behavior:'smooth', block:'start'});
+          tickerMap[tail].forEach(el=>{
+            el.classList.remove('pulse');
+            void el.offsetWidth;
+            el.classList.add('pulse');
+            setTimeout(()=>el.classList.remove('pulse'), 2000);
+          });
+          buffer = '';
+          break;
+        }
+      }
+    }
+  });
+
+  /* ---------- EASTER EGG 03: YEAR FLIP ---------- */
+  const yr = document.getElementById('yr');
+  const yrStates = ['& Q2 2026','/ POSITIONING EDGE','/ BOTTLENECK ALPHA','& Q2 2026'];
+  let yrI = 0;
+  yr.addEventListener('click',(e)=>{
+    e.preventDefault();
+    yrI = (yrI + 1) % yrStates.length;
+    yr.textContent = yrStates[yrI];
+    yr.classList.toggle('flipped', yrI !== 0);
+  });
+
+  /* ---------- EASTER EGG 04: ? HELP OVERLAY ---------- */
+  const help = document.getElementById('help');
+  window.addEventListener('keydown',(e)=>{
+    if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
+    if(e.key === '?' || (e.shiftKey && e.key === '/')){
+      e.preventDefault();
+      help.classList.toggle('show');
+    }
+    if(e.key === 'Escape'){ help.classList.remove('show'); }
+  });
+  help.addEventListener('click',(e)=>{ if(e.target === help) help.classList.remove('show'); });
+  const helpBtn = document.getElementById('helpBtn');
+  if(helpBtn) helpBtn.addEventListener('click',(e)=>{ e.stopPropagation(); help.classList.toggle('show'); });
+
+  /* ---------- EASTER EGG 05: GT to go top ---------- */
+  let gBuf = '';
+  let gTimer;
+  window.addEventListener('keydown',(e)=>{
+    if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
+    if(e.key === 'g' || e.key === 'G'){
+      gBuf = 'g'; clearTimeout(gTimer); gTimer = setTimeout(()=>gBuf='', 800);
+    } else if(gBuf === 'g' && (e.key === 't' || e.key === 'T')){
+      window.scrollTo({top:0, behavior:'smooth'}); gBuf = '';
+    } else { gBuf = ''; }
+  });
+
+  /* ---------- EASTER EGG 06: brand click ---------- */
+  const brand = document.getElementById('brand');
+  let bc = 0;
+  brand.addEventListener('click',()=>{
+    bc++;
+    if(bc === 7){
+      brand.innerHTML = 'ALPHA &middot; SEEKING BOTTLENECKS <span>// 14 NAMES</span>';
+      setTimeout(()=>brand.innerHTML = 'EX-US ALPHA BOOK <span>// NOTE 04.18.26</span>', 3500);
+      bc = 0;
+    }
+  });
+
+  /* ---------- EASTER EGG 07: hidden footer eggs toggle ---------- */
+  const hint = document.getElementById('eggHint');
+  let hc = 0;
+  hint.addEventListener('click',()=>{
+    hc++;
+    if(hc === 3){
+      hint.innerHTML = '// PRESS "?" TO REVEAL ALL BINDINGS<span class="cursor-blink"></span>';
+      setTimeout(()=>hint.innerHTML = '// RESEARCH NOTE &middot; 04.18.2026 &middot; EX-US ALPHA BOOK<span class="cursor-blink"></span>', 4000);
+      hc = 0;
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
