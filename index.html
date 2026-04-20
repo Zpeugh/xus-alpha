@@ -525,14 +525,13 @@ p.body em{font-style:italic;color:var(--amber-br);font-family:var(--font-display
   margin-top:36px;
   border:1px solid var(--line-2);
   background:var(--ink-10);
-  overflow:hidden;
 }
-.matrix table{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:12.5px}
+.matrix table{width:100%;border-collapse:separate;border-spacing:0;font-family:var(--font-mono);font-size:12.5px}
 .matrix thead th{
   text-align:left;font-family:var(--font-mono);font-size:10px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase;
   padding:16px 18px;border-bottom:1px solid var(--line-2);background:var(--ink-20);
   font-weight:500;
-  position:sticky;top:40px;backdrop-filter:blur(8px);
+  position:sticky;top:40px;backdrop-filter:blur(8px);z-index:10;
 }
 .matrix tbody tr{border-bottom:1px solid var(--line);transition:background .2s var(--ease)}
 .matrix tbody tr:hover{background:var(--ink-20)}
@@ -552,6 +551,7 @@ p.body em{font-style:italic;color:var(--amber-br);font-family:var(--font-display
 @media (max-width:900px){
   .matrix{overflow-x:auto}
   .matrix table{min-width:820px}
+  .matrix thead th{top:0}
 }
 
 /* ---- RISKS BOARD ---- */
